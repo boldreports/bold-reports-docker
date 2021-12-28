@@ -1,0 +1,160 @@
+version: '3.5'
+
+services:
+  id-web:
+    container_name: id_web_container
+    image: gcr.io/boldreports/bold-identity:3.3.23
+    restart: on-failure
+    environment: 
+       - APP_BASE_URL=<app_base_url>
+      # - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        
+  id-api:
+    container_name: id_api_container
+    image: gcr.io/boldreports/bold-idp-api:3.3.23
+    restart: on-failure
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        
+  id-ums:
+    container_name: id_ums_container
+    image: gcr.io/boldreports/bold-ums:3.3.23
+    restart: on-failure
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        
+  reports-web:
+    container_name: reports_web_container
+    image: gcr.io/boldreports/boldreports-server:3.3.23
+    restart: on-failure
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        
+  reports-api:
+    container_name: reports_api_container
+    image: gcr.io/boldreports/boldreports-server-api:3.3.23
+    restart: on-failure
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+      - reports-web
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+      
+  reports-jobs:
+    container_name: reports_jobs_container
+    image: gcr.io/boldreports/boldreports-server-jobs:3.3.23
+    restart: on-failure
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+      - reports-web
+      - reports-api
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+      
+  reports-reportservice:
+    container_name: reports_reportservice_container
+    image: gcr.io/boldreports/boldreports-designer:3.3.23
+    restart: on-failure
+    volumes: 
+      - boldservices_data:/application/app_data
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+      - reports-web
+      - reports-api
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        interval: 10s
+        timeout: 10s
+        retries: 5
+        
+  reverse-proxy:
+    container_name: nginx
+    image: nginx
+    restart: on-failure
+    volumes:
+      -   "<default_conf_path>:/etc/nginx/conf.d/default.conf"
+      # - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
+      # - "<ssl_key_file_path>:/etc/ssl/domain.key"
+    ports:
+      - "8080:80"
+      # - "443:443"
+    environment:
+      - NGINX_PORT=80
+    networks:
+      - boldservices
+    depends_on:
+      - id-web
+      - id-api
+      - id-ums
+      - reports-web
+      - reports-api
+      - reports-jobs
+      - reports-reportservice
+  pgdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: <Password>
+    volumes:
+      - db_data:/var/lib/postgresql
+    networks:
+      - boldservices
+
+networks:
+  boldservices: 
+  
+volumes:
+  boldservices_data: 
+  db_data: 
