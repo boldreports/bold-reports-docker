@@ -27,10 +27,10 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 		services:
 		  id-web:
 			container_name: id_web_container
-			image: gcr.io/boldreports/bold-identity:3.3.23
+			image: gcr.io/boldreports/bold-identity:4.2.52
 			restart: on-failure
 			environment: 
-			   - APP_BASE_URL=<app_base_url>
+			   - APP_BASE_URL=<app_base_url>:8085
 			  # - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
 			volumes: 
 			  - boldservices_data:/application/app_data
@@ -44,7 +44,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 				
 		id-api:
 		  container_name: id_api_container
-		  image: gcr.io/boldreports/bold-idp-api:3.3.23
+		  image: gcr.io/boldreports/bold-idp-api:4.2.52
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -60,7 +60,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			
 		id-ums:
 		  container_name: id_ums_container
-		  image: gcr.io/boldreports/bold-ums:3.3.23
+		  image: gcr.io/boldreports/bold-ums:4.2.52
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -76,7 +76,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			  
 		reports-web:
 		  container_name: reports_web_container
-		  image: gcr.io/boldreports/boldreports-server:3.3.23
+		  image: gcr.io/boldreports/boldreports-server:4.2.52
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -92,7 +92,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
         
 		reports-api:
           container_name: reports_api_container
-          image: gcr.io/boldreports/boldreports-server-api:3.3.23
+          image: gcr.io/boldreports/boldreports-server-api:4.2.52
           restart: on-failure
           volumes: 
             - boldservices_data:/application/app_data
@@ -109,7 +109,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-jobs:
 		  container_name: reports_jobs_container
-		  image: gcr.io/boldreports/boldreports-server-jobs:3.3.23
+		  image: gcr.io/boldreports/boldreports-server-jobs:4.2.52
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -127,7 +127,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-reportservice:
 		  container_name: reports_reportservice_container
-		  image: gcr.io/boldreports/boldreports-designer:3.3.23
+		  image: gcr.io/boldreports/boldreports-designer:4.2.52
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -195,6 +195,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       > **Note:**
       > * If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.
       > * Use http://host.docker.internal instead of http://localhost. Host machine localhost DNS will not be accessible inside the container. So, docker desktop provides `host.docker.internal` and `gateway.docker.internal` DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts) or Linux (/etc/hosts).
+	  > * You should add port number in the suffix for the Base URL, `http://host.docker.internal:8085`
       > * Provide the HTTP or HTTPS scheme for APP_BASE_URL value.
 
   6. You can also change the Port number other than `8085`
