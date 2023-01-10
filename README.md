@@ -3,7 +3,7 @@
 <br/>
 
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/boldreports/boldreports-docker?sort=semver)](https://github.com/boldreports/bold-reports-docker/releases)
-[![Documentation](https://img.shields.io/badge/docs-help.boldreports.com-blue.svg)](https://help.boldreports.com/embedded-bi)
+[![Documentation](https://img.shields.io/badge/docs-help.boldreports.com-blue.svg)](https://help.boldreports.com/enterprise-reporting/)
 [![File Issues](https://img.shields.io/badge/file_issues-boldreports_support-blue.svg)](https://www.boldreports.com/support)
 
 # What is Bold Reports
@@ -17,6 +17,8 @@ Enterprise Reporting help us to analyse, explain and report business information
 
 ## Start multiple container Bold Reports with `docker-compose`
 Bold Reports now comes with multiple images for each of the services in it to run on docker-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced docker compose environment.
+
+
 
 
 
@@ -59,6 +61,8 @@ Add environment variables in id-ums service for application startup in backend.I
        - BOLD_SERVICES_USER_EMAIL=testemail@test.com
        - BOLD_SERVICES_USER_PASSWORD=testpassword.
   ```
+
+
 
 
 
