@@ -20,8 +20,6 @@ Bold Reports now comes with multiple images for each of the services in it to ru
 
 
 
-
-
 ## Environment variables for configuring `Application startup` in backend using `docker-compose`
 The below Environment variables are optional. If not provided a manual Application Startup configuration is needed.
 
@@ -61,8 +59,6 @@ Add environment variables in id-ums service for application startup in backend.I
        - BOLD_SERVICES_USER_EMAIL=testemail@test.com
        - BOLD_SERVICES_USER_PASSWORD=testpassword.
   ```
-
-
 
 
 
