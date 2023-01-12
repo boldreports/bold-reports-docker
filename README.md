@@ -2,6 +2,10 @@
 <br/>
 <br/>
 
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/boldreports/boldreports-docker?sort=semver)](https://github.com/boldreports/bold-reports-docker/releases)
+[![Documentation](https://img.shields.io/badge/docs-help.boldreports.com-blue.svg)](https://help.boldreports.com/enterprise-reporting/)
+[![File Issues](https://img.shields.io/badge/file_issues-boldreports_support-blue.svg)](https://www.boldreports.com/support)
+
 # What is Bold Reports
 
 Bold Reports Enterprise Reporting is a business intelligence report management tool, built by Syncfusion for creating, managing, and distributing pixel-perfect paginated RDL reports behind your organization’s firewall.
