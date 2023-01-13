@@ -16,9 +16,9 @@ Enterprise Reporting help us to analyse, explain and report business information
 
 ### Hardware requirements
 
-The following hardware requirements are necessary to run the Bold BI solution:
+The following hardware requirements are necessary to run the Bold Reports solution:
 
-* Operating System: You can use the Bold BI Docker on the following operating systems: 
+* Operating System: You can use the Bold Reports Docker on the following operating systems: 
   * Windows
   * Ubuntu 20.04 LTS
   * Cent OS 7
@@ -29,7 +29,7 @@ The following hardware requirements are necessary to run the Bold BI solution:
 
 ### Software requirements
 
-The following software requirements are necessary to run the Bold BI Enterprise edition:
+The following software requirements are necessary to run the Bold Reports Enterprise edition:
 
 * Database: Microsoft SQL Server 2012+ | PostgreSQL | MySQL
 * Application: Docker
