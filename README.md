@@ -12,6 +12,29 @@ Bold Reports Enterprise Reporting is a business intelligence report management t
 
 Enterprise Reporting help us to analyse, explain and report business information in our day-to-day life.
 
+## Deployment Prerequisites
+
+### Hardware requirements
+
+The following hardware requirements are necessary to run the Bold BI solution:
+
+* Operating System: You can use the Bold BI Docker on the following operating systems: 
+  * Windows
+  * Ubuntu 20.04 LTS
+  * Cent OS 7
+  * Mac
+* CPU: 4-core.
+* Memory: 16 GB RAM.
+* Disk Space: 8 GB or more.
+
+### Software requirements
+
+The following software requirements are necessary to run the Bold BI Enterprise edition:
+
+* Database: Microsoft SQL Server 2012+ | PostgreSQL | MySQL
+* Application: Docker
+* Web Browser: Microsoft Edge, Mozilla Firefox, and Chrome
+
 # Docker compose:<br/>
 * Bold Reports in multiple container image.
 
@@ -60,7 +83,17 @@ Add environment variables in id-ums service for application startup in backend.I
        - BOLD_SERVICES_USER_PASSWORD=testpassword.
   ```
 
+# License
 
+https://www.boldreports.com/terms-of-use/on-premise<br />
+
+The images are provided for your convenience and may contain other software that is licensed differently (Linux system, Bash, etc. from the base distribution, along with any direct or indirect dependencies of the Bold Reports platform).
+
+These pre-built images are provided for convenience and include all optional and additional libraries by default. These libraries may be subject to different licenses than the Bold Reports product.
+
+If you want to install Bold Reports from scratch and precisely control which optional libraries are installed, please download the stand-alone product from boldreports.com. If you have any questions, please contact the Bold Reports team (https://www.boldreports.com/support).
+
+It is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
 
 
 
