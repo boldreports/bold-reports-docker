@@ -39,7 +39,7 @@ The following software requirements are necessary to run the Bold Reports Enterp
 * Bold Reports in multiple container image.
 
 ## Start multiple container Bold Reports with `docker-compose`
-Bold Reports now comes with multiple images for each of the services in it to run on docker-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced docker compose environment.
+[Bold Reports](https://www.boldreports.com/) now comes with multiple images for each of the services in it to run on docker-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced docker compose environment.
 
 
 
