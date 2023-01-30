@@ -8,6 +8,31 @@ Bold Reports Enterprise Reporting is a business intelligence report management t
 
 Enterprise Reporting help us to analyse, explain and report business information in our day-to-day life.
 
+## Deployment Prerequisites
+
+### Hardware requirements
+
+The following hardware requirements are necessary to run the Bold Reports solution:
+
+* Operating System: You can use the Bold Reports Docker on the following operating systems: 
+  * Windows
+  * Ubuntu 20.04 LTS
+  * Cent OS 7
+  * Mac
+  * Red Hat Enterprise Linux (RHEL)
+  * Alpine Linux
+* CPU: 4-core.
+* Memory: 16 GB RAM.
+* Disk Space: 8 GB or more.
+
+### Software requirements
+
+The following software requirements are necessary to run the Bold Reports Enterprise edition:
+
+* Database: Microsoft SQL Server 2012+ | PostgreSQL | MySQL
+* Application: Docker
+* Web Browser: Microsoft Edge, Mozilla Firefox, and Chrome
+
 # Docker compose:<br/>
 * Bold Reports in multiple container image.
 
