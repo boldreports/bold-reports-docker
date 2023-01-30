@@ -51,18 +51,11 @@ Add environment variables in id-ums service for application startup in backend.I
        - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
        - BOLD_SERVICES_DB_TYPE=postgresql
        - BOLD_SERVICES_DB_HOST=testhostname
-       - BOLD_SERVICES_DB_PORT=25060
+       - BOLD_SERVICES_DB_PORT=testportnumber
        - BOLD_SERVICES_DB_USER=testuser
        - BOLD_SERVICES_DB_PASSWORD=testpassword
        - BOLD_SERVICES_DB_NAME=testdbname
-       - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=defaultdb
+       - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=testmaintenancedbname
        - BOLD_SERVICES_USER_EMAIL=testemail@test.com
-       - BOLD_SERVICES_USER_PASSWORD=testpassword.
+       - BOLD_SERVICES_USER_PASSWORD=TestPassword@123
   ```
-
-
-
-
-
-
-
