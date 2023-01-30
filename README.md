@@ -20,7 +20,7 @@ The following hardware requirements are necessary to run the Bold Reports soluti
   * Cent OS 7
   * Mac
   * Red Hat Enterprise Linux(RHEL)
-  * Alphine Linux
+  * Alpine Linux
 * CPU: 4-core.
 * Memory: 16 GB RAM.
 * Disk Space: 8 GB or more.
