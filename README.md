@@ -70,7 +70,7 @@ Add environment variables in id-ums service for application startup in backend.I
 ```sh
     id-ums:
     container_name: id_ums_container
-    image: gcr.io/boldreports/bold-ums:4.2.52
+    image: gcr.io/boldreports/bold-ums:4.2.78
     restart: on-failure
     environment: 
        - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
