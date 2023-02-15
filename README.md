@@ -47,6 +47,8 @@ The following software requirements are necessary to run the Bold Reports Enterp
 |`4.2.78_arm64`      | Debian 10 (arm64)|07/02/2023 |
 |`4.2.78_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 15/02/2023 |
 
+Note: For this `4.2.78_ubuntu_arm64` image tags having limitation on the data visulation while exporting the reports.
+
 # Docker compose:<br/>
 * Bold Reports in multiple container image.
 
