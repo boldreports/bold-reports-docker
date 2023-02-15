@@ -37,6 +37,16 @@ The following software requirements are necessary to run the Bold Reports Enterp
 * Application: Docker
 * Web Browser: Microsoft Edge, Mozilla Firefox, and Chrome
 
+# Supported tags
+
+| Tags               | OS Version    | Last Modified |
+| -------------      | ------------- | ------------- |
+| `4.2.78`           | Ubuntu 20.04  (amd64)    | 07/02/2023 |
+| `4.2.78_alpine`    | Alpine 3.13  (amd64)  | 07/02/2023 |
+| `4.2.78_debian`     | Debian 10  (amd64,arm64)       | 07/02/2023 |
+|`4.2.78_arm64`      | Debian 10 (arm64)|07/02/2023 |
+|`4.2.78_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 15/02/2023 |
+
 # Docker compose:<br/>
 * Bold Reports in multiple container image.
 
