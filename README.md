@@ -41,13 +41,13 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags               | OS Version    | Last Modified |
 | -------------      | ------------- | ------------- |
-| `4.2.78`           | Ubuntu 20.04  (amd64)    | 07/02/2023 |
-| `4.2.78_alpine`    | Alpine 3.13  (amd64)  | 07/02/2023 |
-| `4.2.78_debian`     | Debian 10  (amd64,arm64)        | 07/02/2023 |
-|`4.2.78_arm64`|Debian 10 (arm64)|07/02/2023 |
-|`4.2.78_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 15/02/2023 |
+| `4.2.85`           | Ubuntu 20.04  (amd64)    | 10/03/2023 |
+| `4.2.85_alpine`    | Alpine 3.13  (amd64)  | 10/03/2023 |
+| `4.2.85_debian`     | Debian 10  (amd64,arm64)        | 10/03/2023 |
+|`4.2.85_arm64`|Debian 10 (arm64)|10/03/2023 |
+|`4.2.85_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 10/03/2023 |
 
-Note: The tag `4.2.78_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
+Note: The tag `4.2.85_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
 
 # Docker compose:<br/>
 * Bold Reports in multiple container image.
@@ -82,7 +82,7 @@ Add environment variables in id-ums service for application startup in backend.I
 ```sh
     id-ums:
     container_name: id_ums_container
-    image: gcr.io/boldreports/bold-ums:4.2.78
+    image: gcr.io/boldreports/bold-ums:4.2.85
     restart: on-failure
     environment: 
        - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
