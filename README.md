@@ -58,7 +58,7 @@ Bold Reports now comes with multiple images for each of the services in it to ru
 # Podman compose:<br/>
 * Bold Reports in multiple container image.
 
-## Start multiple container Bold Reports with `docker-compose`
+## Start multiple container Bold Reports with `podman-compose`
 Bold Reports now comes with multiple images for each of the services in it to run on podman-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container-podman.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced podman compose environment.
 
 
