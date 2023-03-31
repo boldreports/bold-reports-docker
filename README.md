@@ -18,7 +18,7 @@ Enterprise Reporting help us to analyse, explain and report business information
 
 The following hardware requirements are necessary to run the Bold Reports solution:
 
-* Operating System: You can use the Bold Reports Docker on the following operating systems: 
+* Operating System: You can use the Bold Reports Docker and Podman on the following operating systems: 
   * Windows
   * Ubuntu 20.04 LTS
   * Cent OS 7
@@ -34,7 +34,7 @@ The following hardware requirements are necessary to run the Bold Reports soluti
 The following software requirements are necessary to run the Bold Reports Enterprise edition:
 
 * Database: Microsoft SQL Server 2012+ | PostgreSQL | MySQL
-* Application: Docker
+* Application: Docker, Podman
 * Web Browser: Microsoft Edge, Mozilla Firefox, and Chrome
 
 # Supported tags
@@ -55,9 +55,15 @@ Note: The tag `4.2.85_ubuntu_arm64` have some limitations where the data visuali
 ## Start multiple container Bold Reports with `docker-compose`
 Bold Reports now comes with multiple images for each of the services in it to run on docker-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced docker compose environment.
 
+# Podman compose:<br/>
+* Bold Reports in multiple container image.
+
+## Start multiple container Bold Reports with `podman-compose`
+Bold Reports now comes with multiple images for each of the services in it to run on podman-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container-podman.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced podman compose environment.
 
 
-## Environment variables for configuring `Application startup` in backend using `docker-compose`
+
+## Environment variables for configuring `Application startup` in backend using `docker-compose` and `podman-compose`
 The below Environment variables are optional. If not provided a manual Application Startup configuration is needed.
 
 | Name                          |Required| Description   | 
