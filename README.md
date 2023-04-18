@@ -179,7 +179,7 @@ volumes:
 Now, run `docker-compose up -d` from your project directory.<br/>
  Please refer to [this guide](docs/single-container.md) to deploy Bold Reports in a simplified docker-compose environment with single image.
 
-## Start multiple container Bold Reports with `docker-compose`
+## Start multiple containers Bold Reports with `docker-compose`
 Bold Reports now comes with multiple images for each of the services in it to run on docker-compose which is mainly for the purpose of production environment to scale services within Bold Reports.  Please refer to [this guide](docs/multiple-container.md) to get know about the multiple images and compose details to deploy Bold Reports in an advanced docker compose environment.
 
 # Podman compose:<br/>
