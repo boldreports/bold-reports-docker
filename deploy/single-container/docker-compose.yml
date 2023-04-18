@@ -1,17 +1,18 @@
 version: '3.5'
 
 services:
-  boldbi:
-   image: syncfusion/boldbi
+  boldreports:
+   image: syncfusion/boldreports
    restart: always
    ports:
      - 8085:80
    # environment:
      # - APP_URL=<app_base_url>
+     # - OPTIONAL_LIBS=<comma_separated_library_names>
    networks:
-     - boldbi
+     - boldreports
    volumes:
-     - boldbi_data:/application/app_data
+     - boldreports_data:/application/app_data
     
   pgdb:
     image: postgres
@@ -21,18 +22,18 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data/
     networks:
-      - boldbi
+      - boldreports
 
 networks:
-  boldbi:
+  boldreports:
   
 volumes:
-  boldbi_data:
+  boldreports_data:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '<host_path_boldbi_data>'
+      device: '<host_path_boldreports_data>'
   db_data:
     driver: local
     driver_opts:

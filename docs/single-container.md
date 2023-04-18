@@ -14,7 +14,7 @@
         You can use either a `.yml` or `.yaml` extension for this file. They both works well.
       
   3.  Change into your project directory.
-  For example, if you named your directory `my_boldbi`
+  For example, if you named your directory `my_boldreports`
 
       ```sh
       $  cd my_boldreports/
@@ -80,23 +80,23 @@ volumes:
 
   7. Allocate a directory in your host machine to store the shared folders for applications’ usage. Replace the directory path with `<host_path_boldreports_data>` and `<host_path_db_data>` in **docker-compose.yml** file.
 
-       For example, <br><b>Windows:</b> `device: 'D:/boldbi/boldbi_data'` and `device: 'D:/boldbi/db_data'` <br><b>Linux:</b> `device: '/var/boldbi/boldbi_data'` and `device: '/var/boldbi/db_data'`
+       For example, <br><b>Windows:</b> `device: 'D:/boldreports/boldreports_data'` and `device: 'D:/boldreports/db_data'` <br><b>Linux:</b> `device: '/var/boldreports/boldreports_data'` and `device: '/var/boldreports/db_data'`
 
       > **Note:**
-      > The docker volumes `boldbi_data` and `db_data` persists data of Bold BI and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
+      > The docker volumes `boldreports_data` and `db_data` persists data of Bold BI and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
 
 ### Build the project
 
 Now, run `docker-compose up -d` from your project directory.
 <br />
 
-This runs `docker-compose up` in detached mode, pulls the needed Docker images, and starts the boldbi and database containers, as shown in the example below.
+This runs `docker-compose up` in detached mode, pulls the needed Docker images, and starts the boldreports and database containers, as shown in the example below.
 ```sh
 docker-compose up -d
 
-Creating network "my_boldbi_boldbi" with the default driver
-Creating volume "my_boldbi_boldbi_data" with local driver
-Creating volume "my_boldbi_db_data" with local driver
+Creating network "my_boldreports_boldreports" with the default driver
+Creating volume "my_boldreports_boldreports_data" with local driver
+Creating volume "my_boldreports_db_data" with local driver
 Pulling db (postgres:)...
 latest: Pulling from library/postgres
 7d63c13d9b9b: Pull complete
@@ -104,8 +104,8 @@ cad0f9d5f5fe: Pull complete
 <...>
 Digest:sha256:db927beee892dd02fbe963559f29a7867708747934812a80f83bff406a0d54fd
 Status: Downloaded newer image for postgres:latest
-Creating my_boldbi_boldbi_1 ... done
-Creating my_boldbi_db_1     ... done
+Creating my_boldreports_boldreports_1 ... done
+Creating my_boldreports_db_1     ... done
 ```
 ### Bring up Bold BI in a web browser
 
@@ -118,7 +118,7 @@ At this point, Bold BI should be running in `<app_base_url>:8085` (as appropriat
 
 Configure the Bold BI On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
 
-https://help.boldbi.com/embedded-bi/application-startup
+https://help.boldreports.com/enterprise-reporting/administrator-guide/application-startup/
 
 > **Note:**
 > To use the above configured PostgreSQL server in Bold BI please use `pgdb` as the PostgreSQL server name.

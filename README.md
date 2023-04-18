@@ -67,8 +67,6 @@ After running the command, you can access the Bold Reports App by entering `http
 docker run --name boldreports -p 80:80 -p 443:443 \
      -e APP_URL=<app_base_url> \
      -e OPTIONAL_LIBS=<optional_library_names> \
-     -e widget_bing_map_enable=<true/false>\
-     -e widget_bing_map_api_key=<widget_bing_map_api_key> \
      -v <host_path_for_appdata_files>:/application/app_data \
      -v <host_path_for_nginx_config>:/etc/nginx/sites-available \
      -d syncfusion/boldreports:<tag>
@@ -78,9 +76,7 @@ docker run --name boldreports -p 80:80 -p 443:443 \
 ```sh
 docker run --name boldreports -p 80:80 -p 443:443 \
      -e APP_URL=https://example.com \
-     -e OPTIONAL_LIBS=mongodb,mysql,influxdb,snowflake,oracle,clickhouse,google \
-     -e widget_bing_map_enable=true\
-     -e widget_bing_map_api_key=<widget_bing_map_api_key> \
+     -e OPTIONAL_LIBS=mysql,oracle,postgresql \
      -v D:/boldreports/app_data:/application/app_data \
      -v D:/boldreports/nginx:/etc/nginx/sites-available \
      -d syncfusion/boldreports:6.2.7
@@ -125,9 +121,9 @@ Configure the Bold Reports On-Premise application startup to use the application
 https://help.boldreports.com/enterprise-reporting/administrator-guide/application-startup/
 
 # Docker compose:<br/>
-* [BoldReports in single container image](#start-single-container-bold-bi-with-docker-compose).
+* [BoldReports in single container image](#start-single-container-bold-reports-with-docker-compose).
 
-* [BoldReports in multiple container image](#start-multiple-containers-bold-bi-with-docker-compose).
+* [BoldReports in multiple container image](#start-multiple-containers-bold-reports-with-docker-compose).
 ## Start single container Bold Reports with `docker-compose`
 You can use docker-compose to easily run Bold Reports in an isolated environment built with Docker containers. The image shown here is a single image containing multiple Bold Reports services targeted for simplifying evaluation and minimalistic production use cases.
 <br/>
