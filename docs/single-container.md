@@ -33,6 +33,7 @@ services:
      - 8085:80
    # environment:
      # - APP_URL=<app_base_url>
+	 # - OPTIONAL_LIBS=<comma_separated_library_names>
    networks:
      - boldreports
    volumes:
