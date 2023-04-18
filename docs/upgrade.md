@@ -14,8 +14,8 @@ Before upgrading the Bold Reports to latest version, make sure to take the backu
 ## Proceeding with upgrade
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
 
-You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/ranganathan-arumugam/bold-reports-docker/v5.1.20/deploy/multiple-container/docker-compose.yml)
-[default.conf](https://raw.githubusercontent.com/ranganathan-arumugam/bold-reports-docker/v5.1.20/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
+You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.1.20/deploy/multiple-container/docker-compose.yml)
+[default.conf](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.1.20/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
 
 ```sh
 docker-compose down
