@@ -27,7 +27,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 		services:
 		  id-web:
 			container_name: id_web_container
-			image: gcr.io/boldreports/bold-identity:4.2.85
+			image: gcr.io/boldreports/bold-identity:5.1.20
 			restart: on-failure
 			environment: 
 			   - APP_BASE_URL=<app_base_url>
@@ -44,7 +44,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 				
 		id-api:
 		  container_name: id_api_container
-		  image: gcr.io/boldreports/bold-idp-api:4.2.85
+		  image: gcr.io/boldreports/bold-idp-api:5.1.20
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -60,7 +60,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			
 		id-ums:
 		  container_name: id_ums_container
-		  image: gcr.io/boldreports/bold-ums:4.2.85
+		  image: gcr.io/boldreports/bold-ums:5.1.20
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -76,7 +76,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			  
 		reports-web:
 		  container_name: reports_web_container
-		  image: gcr.io/boldreports/boldreports-server:4.2.85
+		  image: gcr.io/boldreports/boldreports-server:5.1.20
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -92,7 +92,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
         
 		reports-api:
           container_name: reports_api_container
-          image: gcr.io/boldreports/boldreports-server-api:4.2.85
+          image: gcr.io/boldreports/boldreports-server-api:5.1.20
           restart: on-failure
           volumes: 
             - boldservices_data:/application/app_data
@@ -109,7 +109,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-jobs:
 		  container_name: reports_jobs_container
-		  image: gcr.io/boldreports/boldreports-server-jobs:4.2.85
+		  image: gcr.io/boldreports/boldreports-server-jobs:5.1.20
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -127,7 +127,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-reportservice:
 		  container_name: reports_reportservice_container
-		  image: gcr.io/boldreports/boldreports-designer:4.2.85
+		  image: gcr.io/boldreports/boldreports-designer:5.1.20
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -142,6 +142,23 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			interval: 10s
 			timeout: 10s
 			retries: 5
+			
+		reports-viewer:
+		  container_name: reports_viewer_container
+		  image: gcr.io/boldreports/boldreports-viewer:5.1.20
+		  restart: on-failure
+		  volumes: 
+			- boldservices_data:/application/app_data
+		  networks:
+            - boldservices
+		  depends_on:
+			- id-web
+			- reports-web
+		  healthcheck:
+          test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+          interval: 10s
+          timeout: 10s
+          retries: 5
         
 		reverse-proxy:
 		  container_name: nginx
@@ -166,6 +183,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			- reports-api
 			- reports-jobs
 			- reports-reportservice
+			- reports-viewer
 		pgdb:
           image: postgres
 		  restart: always
