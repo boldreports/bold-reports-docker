@@ -79,7 +79,7 @@ docker run --name boldreports -p 80:80 -p 443:443 \
      -e OPTIONAL_LIBS=mysql,oracle,postgresql \
      -v D:/boldreports/app_data:/application/app_data \
      -v D:/boldreports/nginx:/etc/nginx/sites-available \
-     -d syncfusion/boldreports:6.2.7
+     -d syncfusion/boldreports:5.1.20
 ``` 
 
 Bold Reports accepts the following environment variables from the command line.
@@ -216,7 +216,7 @@ Add environment variables in id-ums service for application startup in backend.I
 ```sh
     id-ums:
     container_name: id_ums_container
-    image: gcr.io/boldreports/bold-ums:4.2.85
+    image: gcr.io/boldreports/bold-ums:5.1.20
     restart: on-failure
     environment: 
        - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
