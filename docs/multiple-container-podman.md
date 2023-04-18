@@ -137,7 +137,24 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
             - id-web
             - reports-web
             - reports-api
-		healthcheck:
+		  healthcheck:
+			test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+			interval: 10s
+			timeout: 10s
+			retries: 5
+			
+		reports-viewer:
+		  container_name: reports_viewer_container
+		  image: gcr.io/boldreports/boldreports-viewer:5.1.20
+		  restart: on-failure
+		  volumes: 
+		    - boldservices_data:/application/app_data
+		  networks:
+		    - boldservices
+		  depends_on:
+		    - id-web
+		    - reports-web
+		  healthcheck:
 			test: ["CMD", "curl", "-f", "http://localhost/health-check"]
 			interval: 10s
 			timeout: 10s
@@ -166,6 +183,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			- reports-api
 			- reports-jobs
 			- reports-reportservice
+			- reports-viewer
 		pgdb:
           image: postgres
 		  restart: always
