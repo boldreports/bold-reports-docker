@@ -231,6 +231,10 @@ Add environment variables in id-ums service for application startup in backend.I
        - BOLD_SERVICES_USER_PASSWORD=testpassword.
   ```
 
+# Upgrade Bold Reports
+
+If you are upgrading Bold Reports to 5.1.20, please follow the steps in this [link](/upgrade.md).
+
 # License
 
 https://www.boldreports.com/terms-of-use/on-premise<br />
