@@ -39,7 +39,7 @@
 ## Multi container deployment
 
 1. Add a SSL certificate path with `.key` and `.crt` file in docker-compose yaml file.
-   ![docker-compose.yml](../images/nginx-certificate.png)
+   ![docker-compose.yml](../images/ngnix-certificate.png)
 
 2. Refer below document for SSL changes in `nginx` file .
 
