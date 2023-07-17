@@ -27,7 +27,7 @@ Bold Reports updates the database schema of your current version to the latest v
     ```sh
      docker-compose up -d
     ```
- 2. Otherwise, You are using the command to deploy Bold Reports in single container,pls follow the below steps for upgrade. use below command to get all the containers,
+ 2. Else, You are using the command to deploy Bold Reports in single container, Please follow the below steps for upgrade and use the below command to get all the containers,
 
     ```sh
      docker ps -a
@@ -55,10 +55,12 @@ Bold Reports updates the database schema of your current version to the latest v
      -d syncfusion/boldreports:<tag> 
     ```
 
-    Eg: docker run --name boldreports -p 8085:80 -p 443:443 -e APP_URL="http://20.163.205.44:8085" -e OPTIONAL_LIBS="mysql,oracle,postgresql" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:5.1.20
+    Example: docker run --name boldreports -p 8085:80 -p 443:443 -e APP_URL="http://20.163.205.44:8085" -e OPTIONAL_LIBS="mysql,oracle,postgresql" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:5.1.20
 
     > **Note:**
     > When upgrading Bold Reports, ensure that the volume mount remains the same, and only the tag needs to be changed.
+    > Once you run the container, please wait a couple of minutes to access the url. 
+
 
 ## Proceeding with upgrade for multiple container
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
