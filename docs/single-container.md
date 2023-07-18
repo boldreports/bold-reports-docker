@@ -84,7 +84,7 @@ volumes:
        For example, <br><b>Windows:</b> `device: 'D:/boldreports/boldreports_data'` and `device: 'D:/boldreports/db_data'` <br><b>Linux:</b> `device: '/var/boldreports/boldreports_data'` and `device: '/var/boldreports/db_data'`
 
       > **Note:**
-      > The docker volumes `boldreports_data` and `db_data` persists data of Bold BI and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
+      > The docker volumes `boldreports_data` and `db_data` persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
 
 ### Build the project
 
@@ -108,24 +108,24 @@ Status: Downloaded newer image for postgres:latest
 Creating my_boldreports_boldreports_1 ... done
 Creating my_boldreports_db_1     ... done
 ```
-### Bring up Bold BI in a web browser
+### Bring up Bold Reports in a web browser
 
-At this point, Bold BI should be running in `<app_base_url>:8085` (as appropriate)
+At this point, Bold Reports should be running in `<app_base_url>:8085` (as appropriate)
 
 > **Note:**
-> The BoldBI site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes for the first load.
+> The Bold Reports site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes for the first load.
 
 ### Application Startup
 
-Configure the Bold BI On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
+Configure the Bold Reports On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
 
 https://help.boldreports.com/enterprise-reporting/administrator-guide/application-startup/
 
 > **Note:**
-> To use the above configured PostgreSQL server in Bold BI please use `pgdb` as the PostgreSQL server name.
+> To use the above configured PostgreSQL server in Bold Reports please use `pgdb` as the PostgreSQL server name.
 
 ### Shutdown and cleanup
 
-The command `docker-compose down` removes the containers and default network, but preserves the volumes of Bold BI and PostgreSQL. <br /><br />
+The command `docker-compose down` removes the containers and default network, but preserves the volumes of Bold Reports and PostgreSQL. <br /><br />
 The command `docker-compose down --volumes` removes the containers, default network, and all the volumes.
 

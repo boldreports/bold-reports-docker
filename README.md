@@ -41,13 +41,13 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags               | OS Version    | Last Modified |
 | -------------      | ------------- | ------------- |
-| `5.1.20`           | Ubuntu 20.04  (amd64)    | 18/04/2023 |
-| `5.1.20_alpine`    | Alpine 3.13  (amd64)  | 18/04/2023 |
-| `5.1.20_debian`     | Debian 10  (amd64,arm64)        | 18/04/2023 |
-|`5.1.20_arm64`|Debian 10 (arm64)|18/04/2023 |
-|`5.1.20_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 18/04/2023 |
+| `5.2.26`           | Ubuntu 20.04  (amd64)    | 18/07/2023 |
+| `5.2.26_alpine`    | Alpine 3.13  (amd64)  | 18/07/2023 |
+| `5.2.26_debian`     | Debian 10  (amd64,arm64)        | 18/07/2023 |
+|`5.2.26_arm64`|Debian 10 (arm64)|18/07/2023 |
+|`5.2.26_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 18/07/2023 |
 
-Note: The tag `5.1.20_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
+Note: The tag `5.2.26_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
 
 # How to use this image
 ## Start a Bold Reports instance
@@ -79,13 +79,13 @@ docker run --name boldreports -p 80:80 -p 443:443 \
      -e OPTIONAL_LIBS=mysql,oracle,postgresql \
      -v D:/boldreports/app_data:/application/app_data \
      -v D:/boldreports/nginx:/etc/nginx/sites-available \
-     -d syncfusion/boldreports:5.1.20
+     -d syncfusion/boldreports:5.2.26
 ``` 
 
 Bold Reports accepts the following environment variables from the command line.
 | Name                          |Required| Description   | 
 | -------------                 |----------| ------------- | 
-| `APP_URL`                     |No <br /><br /><br /> Needed when configuring with domain or IP| Domain or IP address with http/https protocol.<br/>For example, <br/>`http://<public_DNS_address>`<br/>`http://<public_ip_address>` <br/><br/>The default APP_URL is `http://localhost`<br/><br/> <b>Note:</b><br/>•	If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.<br/>• For linux depoyment the default APP_URL is http://localhost or http://172.17.0.1<br/>• You can provide the HTTP or HTTPS scheme for APP_BASE_URL value.<br/>• Please refer to this section for [SSL Termination](docs/ssl-termination.md).|
+| `APP_URL`                     |No <br /><br /><br /> Needed when configuring with domain or IP| Domain or IP address with http/https protocol.<br/>For example, <br/>`http://<public_DNS_address>`<br/>`http://<public_ip_address>` <br/><br/>The default APP_URL is `http://localhost`<br/><br/> <b>Note:</b><br/>•	If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.<br/>• For linux depoyment the default APP_URL is http://localhost or http://172.17.0.1<br/>• You can provide the HTTP or HTTPS scheme for APP_BASE_URL value.<br/>• Please refer to this section for [SSL Termination](docs/FAQ/how-to-configure-ssl-for-docker-compose.md).|
 |`OPTIONAL_LIBS`|No|	These are the client libraries used in Bold Reports by default.<br/><br/>`'mysql,oracle,postgresql'`<br/><br/>Please refer [Consent to deploy client libraries](docs/consent-to-deploy-client-libraries.md) Libraries section to know more.|
 |`<host_path_for_appdata_files>` |No|Persistent volume path for Bold Reports application data|
 |`<host_path_for_nginx_config>` |No|Persistent volume path for Nginx configuration|
@@ -216,7 +216,7 @@ Add environment variables in id-ums service for application startup in backend.I
 ```sh
     id-ums:
     container_name: id_ums_container
-    image: gcr.io/boldreports/bold-ums:5.1.20
+    image: gcr.io/boldreports/bold-ums:5.2.26
     restart: on-failure
     environment: 
        - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
@@ -233,7 +233,7 @@ Add environment variables in id-ums service for application startup in backend.I
 
 # Upgrade Bold Reports
 
-If you are upgrading Bold Reports to 5.1.20, please follow the steps in this [link](/docs/upgrade.md).
+If you are upgrading Bold Reports to 5.2.26, please follow the steps in this [link](/docs/upgrade.md).
 
 # License
 
@@ -247,7 +247,6 @@ If you want to install Bold Reports from scratch and precisely control which opt
 
 It is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
 
+# FAQ
 
-
-
-
+[How to configure SSL for Bold Reports Application in single container and multiple container?](https://github.com/boldreports/bold-reports-docker/blob/master/docs/FAQ/how-to-configure-ssl-for-docker-compose.md)
