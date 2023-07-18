@@ -42,9 +42,9 @@ Bold Reports updates the database schema of your current version to the latest v
     docker rm --force <containername>
     ```
 
-    Example: docker rm --force boldreports
+    #### Example: docker rm --force boldreports
 
-    Now we need to create a container with same container name and persisatnt volume path.
+    Now we need to create a container with same container name and persistant volume path.
 
     ```sh 
     docker run --name boldreports -p 80:80 -p 443:443 \
@@ -55,7 +55,7 @@ Bold Reports updates the database schema of your current version to the latest v
      -d syncfusion/boldreports:<tag> 
     ```
 
-    Example: docker run --name boldreports -p 8085:80 -p 443:443 -e APP_URL="http://20.163.205.44:8085" -e OPTIONAL_LIBS="mysql,oracle,postgresql" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:5.1.20
+    #### Example: docker run --name boldreports -p 8085:80 -p 443:443 -e APP_URL="http://10.103.215.44:8085" -e OPTIONAL_LIBS="mysql,oracle,postgresql" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:5.1.20
 
     > **Note:**
     > When upgrading Bold Reports, ensure that the volume mount remains the same, and only the tag needs to be changed.
