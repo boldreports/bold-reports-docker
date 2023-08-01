@@ -118,8 +118,8 @@ services:
         interval: 10s
         timeout: 10s
         retries: 5
-        
-   reports-viewer:
+
+  reports-viewer:
     container_name: reports_viewer_container
     image: gcr.io/boldreports/boldreports-viewer:5.2.26
     restart: on-failure
@@ -174,5 +174,15 @@ networks:
   boldservices: 
   
 volumes:
-  boldservices_data: 
-  db_data: 
+  boldservices_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '<host_path_boldservices_data>'
+  db_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '<host_path_db_data>'

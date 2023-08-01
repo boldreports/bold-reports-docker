@@ -196,10 +196,20 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 
 	  networks:
 		boldservices: 
-  
+
 	  volumes:
-        boldservices_data: 
-        db_data: 
+		boldservices_data:
+			driver: local
+			driver_opts:
+			type: 'none'
+			o: 'bind'
+			device: '<host_path_boldservices_data>'
+		db_data:
+			driver: local
+			driver_opts:
+			type: 'none'
+			o: 'bind'
+			device: '<host_path_db_data>' 
         ```
   
   5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
