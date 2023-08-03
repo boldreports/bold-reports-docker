@@ -41,13 +41,13 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags               | OS Version    | Last Modified |
 | -------------      | ------------- | ------------- |
-| `5.2.26`           | Ubuntu 20.04  (amd64)    | 18/07/2023 |
-| `5.2.26_alpine`    | Alpine 3.13  (amd64)  | 18/07/2023 |
-| `5.2.26_debian`     | Debian 10  (amd64,arm64)        | 18/07/2023 |
-|`5.2.26_arm64`|Debian 10 (arm64)|18/07/2023 |
-|`5.2.26_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 18/07/2023 |
+| `5.2.26_refresh_release`           | Ubuntu 20.04  (amd64)    | 18/07/2023 |
+| `5.2.26_refresh_release_alpine`    | Alpine 3.13  (amd64)  | 18/07/2023 |
+| `5.2.26_refresh_release_debian`     | Debian 10  (amd64,arm64)        | 18/07/2023 |
+|`5.2.26_refresh_release_arm64`|Debian 10 (arm64)|18/07/2023 |
+|`5.2.26_refresh_release_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 18/07/2023 |
 
-Note: The tag `5.2.26_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
+Note: The tag `5.2.26_refresh_release_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
 
 # How to use this image
 ## Start a Bold Reports instance
@@ -79,7 +79,7 @@ docker run --name boldreports -p 80:80 -p 443:443 \
      -e OPTIONAL_LIBS=mysql,oracle,postgresql \
      -v D:/boldreports/app_data:/application/app_data \
      -v D:/boldreports/nginx:/etc/nginx/sites-available \
-     -d syncfusion/boldreports:5.2.26
+     -d syncfusion/boldreports:5.2.26_refresh_release
 ``` 
 
 Bold Reports accepts the following environment variables from the command line.
@@ -216,7 +216,7 @@ Add environment variables in id-ums service for application startup in backend.I
 ```sh
     id-ums:
     container_name: id_ums_container
-    image: gcr.io/boldreports/bold-ums:5.2.26
+    image: gcr.io/boldreports/bold-ums:5.2.26_refresh_release
     restart: on-failure
     environment: 
        - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
