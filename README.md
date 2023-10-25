@@ -59,13 +59,14 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
   ```
   2. Open the Docker Compose file, fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to the KB document to obtain the offline Bold Reports unlock key.
 
-    ![docker-compose-variable](./docs/images/docker-compose-variable.png)
+    ![docker-compose-variable](images/docker-compose-variable.png)
   
   3. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
    ```sh
    docker-compose up -d; docker-compose logs -f boldreports
    ```
-    ![docker-compose-up](./docs/images/docker-compose-up.png)
+
+    ![docker-compose-up](images/docker-compose-up.png)
 
   4. Now, access the Bold Reports application by entering the URL as http://localhost:8085 or http://host-ip:8085 in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
     ![docker-startup](./docs/images/docker-startup.png)
