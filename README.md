@@ -55,15 +55,15 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
 
   1. Download the Docker Compose file by using the following command.
   ```sh
-  curl -o docker-compose.yml "https://raw.githubusercontent.com/boldbi/boldbi-docker/main/deploy/single-container-pre-configured/docker-compose.yml"
+  curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/main/deploy/single-container-pre-configured/docker-compose.yml"
   ```
-  2. Open the Docker Compose file, fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to this KB document to obtain the offline Bold Reports unlock key.
+  2. Open the Docker Compose file, fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to the KB document to obtain the offline Bold Reports unlock key.
 
     ![docker-compose-variable](./docs/images/docker-compose-variable.png)
   
   3. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
    ```sh
-   docker-compose up -d; docker-compose logs -f boldbi
+   docker-compose up -d; docker-compose logs -f boldreports
    ```
     ![docker-compose-up](./docs/images/docker-compose-up.png)
 
