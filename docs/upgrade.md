@@ -15,7 +15,7 @@ Before upgrading the Bold Reports to latest version, make sure to take the backu
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
 
  1. If you are using the docker compose yaml file for deployment,
- You can download the latest docker-compose file from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.2.26/deploy/single-container/docker-compose.yml) and use the below command to down the containers from where you deploy the docker compose file.
+ You can download the latest docker-compose file from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container/docker-compose.yml) and use the below command to down the containers from where you deploy the docker compose file.
 
     ```sh
      docker-compose down
@@ -65,8 +65,8 @@ Bold Reports updates the database schema of your current version to the latest v
 ## Proceeding with upgrade for multiple container
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
 
-You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.2.26/deploy/multiple-container/docker-compose.yml)
-[default.conf](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.2.26/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
+You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/multiple-container/docker-compose.yml)
+[default.conf](https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
 
 ```sh
 docker-compose down

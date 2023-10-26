@@ -233,7 +233,7 @@ Add environment variables in id-ums service for application startup in backend.I
 
 # Upgrade Bold Reports
 
-If you are upgrading Bold Reports to 5.2.26, please follow the steps in this [link](/docs/upgrade.md).
+If you are upgrading Bold Reports to 5.3.8, please follow the steps in this [link](/docs/upgrade.md).
 
 # License
 
