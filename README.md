@@ -61,10 +61,9 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
     ![docker-compose-variable](docs/images/docker-compose-variable.png)
   
   3. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
-    ```sh
-    docker-compose up -d; docker-compose logs -f boldreports
-    ```
-    
+   ```sh
+   docker-compose up -d; docker-compose logs -f boldreports
+   ```
    ![docker-compose-up](docs/images/docker-compose-up.png)
 
   4. Now, access the Bold Reports application by entering the URL as http://localhost:8085 or http://host-ip:8085 in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
@@ -72,13 +71,14 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
   
 # Upgrade Bold Reports
 
-If you are upgrading Bold Reports to 5.2.26, please follow the steps in this [link](/docs/upgrade.md).
+If you are upgrading Bold Reports to 5.3.8, please follow the steps in this [link](/docs/upgrade.md).
 
-# How to Deploy Bold BI using Advanced Configuration?
+# How to Deploy Bold Reports using Advanced Configuration?
 
 In this section, you will learn how to run the Bold Reports application using advanced configurations such as configuring Bold Reports using an existing DB server, using a host directory as a persistent volume, configuring startup manually, configuring an SSL certificate, and running a multi-container Reports application.
 
-1. How to deploy Bold Reports using existing DB server? (/deploy/multiple-container/)
+1. [How to deploy Bold Reports using existing DB server?](./docs/how-to-deploy-bold-reports-using-existing-db-server.md)
+
 
 # License
 
