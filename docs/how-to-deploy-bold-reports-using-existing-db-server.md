@@ -43,7 +43,7 @@ In the following section, we are going to run the Bold Reports application by pa
 
 4. After running the command, access the Bold Reports App by entering APP_URL in a browser.At this point, Bold Reports should be running in `<app_base_url>:8085` (as appropriate)
    ![docker-startup](../docs/images/docker-startup.png)
-   > **Note:** The BoldBI site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes for the first load.
+   > **Note:** The Bold Reports site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes for the first load.
 
 ## Shutdown and Cleanup
 The command `docker-compose down` removes the containers and default network, but preserves the volumes of Bold Reports and PostgreSQL.
