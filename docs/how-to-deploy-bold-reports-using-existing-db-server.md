@@ -42,6 +42,7 @@ In the following section, we are going to run the Bold Reports application by pa
    > **Note:** The docker volumes `boldservices_data` and `db_data` persists data of Bold Reports and PostgreSQL respectively. Learn more about docker volumes
 
 4. After running the command, access the Bold Reports App by entering APP_URL in a browser.At this point, Bold Reports should be running in `<app_base_url>:8085` (as appropriate)
+
    ![docker-startup](../docs/images/docker-startup.png)
    > **Note:** The Bold Reports site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes for the first load.
 
