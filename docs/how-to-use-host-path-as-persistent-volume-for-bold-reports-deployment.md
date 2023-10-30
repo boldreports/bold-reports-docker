@@ -14,11 +14,19 @@ You can store the application data on your host machine to make the Bold Reports
    **Persisting application app_data**
 
    Replace the `<host_path_for_appdata_files>` value with a directory path from your host machine in the advanced docker run command.
-   ```sh
-   <b>For example</b>
-   Windows: <b>-v D:/boldreports/nginx:/etc/nginx/sites-available</ b>
-   Linux: <b>-v /home/boldreports/nginx:/etc/nginx/sites-available</ b>
-   ```
+
+
+   **For example**
+   **Windows:** `-v D:/boldreports/nginx:/etc/nginx/sites-available`
+   **Linux:** `-v /home/boldreports/nginx:/etc/nginx/sites-available`
+
+   **Nginx configuration**
+   Replace the `<host_path_for_nginx_config>` value with a directory path from your host machine in the advanced docker run command.
+
+   **For example**
+   **Windows:** `-v D:/boldreports/nginx:/etc/nginx/sites-available`
+   **Linux:** `-v /home/boldreports/nginx:/etc/nginx/sites-available`
+
    **Example:**
    ```sh
    docker run --name boldreports -p 80:80 -p 443:443 \

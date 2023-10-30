@@ -21,12 +21,12 @@
          device: '<host_path_nginx_data>'
    ```
 
-   For example,
-   **Windows:** `device: 'D:/boldreports/nginx_data'` and `device: 'D:/boldreports/nginx_data'`
+   For example,</br>
+   **Windows:** `device: 'D:/boldreports/nginx_data'` and `device: 'D:/boldreports/nginx_data'` </br>
    **Linux:** `device: '/var/boldreports/nginx_data'` and `device: '/var/boldreports/nginx_data'`
 
 3. Copy the SSL certificate `.key` and `.crt` format and paste inside the `nginx` mount folder.
-4. Refer below document for SSL changes in `nginx` file .
+4. Refer below document for SSL changes in `nginx` file .</br>
    [https://github.com/boldreports/bold-reports-docker/blob/main/docs/ssl-termination.md](../docs/ssl-termination.md)
 5. Restart the Bold Reports container using below command.
    ```sh
@@ -36,9 +36,9 @@
 ## Multi container deployment
 
 1. Add a SSL certificate path with `.key` and `.crt` file in docker-compose yaml file.
-   ![docker-compose.yml](../docs/images/ngnix-volume.png)
+   ![docker-compose.yml](../docs/images/nginx-certificate.png)
 
-2. Refer below document for SSL changes in nginx file .
+2. Refer below document for SSL changes in nginx file .</br>
    [https://github.com/boldreports/bold-reports-docker/blob/main/docs/ssl-termination.md](../docs/ssl-termination.md)
 
 3. Restart the Nginx container using below command.
