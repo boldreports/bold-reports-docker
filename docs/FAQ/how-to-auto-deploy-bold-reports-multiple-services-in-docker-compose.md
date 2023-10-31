@@ -11,8 +11,8 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 3. Change into your project directory. For example, if you named your directory my_boldreports
    > $  cd my_boldreports/
 4. Create a docker-compose.yml file that starts your `BoldReports` and a separate `PostgreSQL` instance with volume mounts for data persistence:
-   > version: '3.5'
-     services:
+   > version: '3.5'<br />
+     services:<br />
        id-web:
        > container_name: id_web_container
        > image: gcr.io/boldreports-294612/bold-identity:6.15.11
