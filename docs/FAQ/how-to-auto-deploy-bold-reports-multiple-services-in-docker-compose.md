@@ -11,192 +11,190 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 3. Change into your project directory. For example, if you named your directory my_boldreports
    > $  cd my_boldreports/
 4. Create a docker-compose.yml file that starts your `BoldReports` and a separate `PostgreSQL` instance with volume mounts for data persistence:
-   > 
-version: '3.5'
+   > version: '3.5'
+   > services:
+     > id-web:
+       > container_name: id_web_container
+       > image: gcr.io/boldreports-294612/bold-identity:6.15.11
+       > restart: on-failure
+       > environment:
+       >   - APP_BASE_URL=<app_base_url>
+       >   - INSTALL_OPTIONAL_LIBS=mongodb,mysql,influxdb,snowflake,oracle,clickhouse,google
+       > volumes: 
+       >   - boldservices_data:/application/app_data
+       > networks:
+       >   - boldservices
+       >  healthcheck:
+            > test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+            > interval: 10s
+            > timeout: 10s
+            > retries: 5
 
-services:
-  id-web:
-    container_name: id_web_container
-    image: gcr.io/boldreports-294612/bold-identity:6.15.11
-    restart: on-failure
-    environment:
-      - APP_BASE_URL=<app_base_url>
-      - INSTALL_OPTIONAL_LIBS=mongodb,mysql,influxdb,snowflake,oracle,clickhouse,google
-    volumes: 
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   > id-api:
+     > container_name: id_api_container
+     > image: gcr.io/boldreports-294612/bold-identity-api:6.15.11
+     > restart: on-failure
+     > volumes: 
+       > - boldservices_data:/application/app_data
+      networks:
+      > - boldservices
+      depends_on:
+      > - id-web
+      healthcheck:
+        > test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+        > interval: 10s
+        > timeout: 10s
+        > retries: 5
 
-  id-api:
-    container_name: id_api_container
-    image: gcr.io/boldreports-294612/bold-identity-api:6.15.11
-    restart: on-failure
-    volumes: 
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   id-ums:
+      container_name: id_ums_container
+      image: gcr.io/boldreports-294612/bold-ums:6.15.11
+      restart: on-failure
+      environment:
+         - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
+      # - BOLD_SERVICES_UNLOCK_KEY=<Bold_Reports_license_key>
+      # - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
+      # - BOLD_SERVICES_DB_HOST=<data_base_server_host>
+      # - BOLD_SERVICES_DB_PORT=<data_base_server_port>
+      # - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
+      # - BOLD_SERVICES_DB_USER=<data_base_user_name>
+      # - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
+      # - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
+      # - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
+      volumes:
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+         interval: 10s
+         timeout: 10s
+         retries: 5
 
-  id-ums:
-    container_name: id_ums_container
-    image: gcr.io/boldreports-294612/bold-ums:6.15.11
-    restart: on-failure
-    environment:
-      - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
-     # - BOLD_SERVICES_UNLOCK_KEY=<Bold_Reports_license_key>
-     # - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
-     # - BOLD_SERVICES_DB_HOST=<data_base_server_host>
-     # - BOLD_SERVICES_DB_PORT=<data_base_server_port>
-     # - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
-     # - BOLD_SERVICES_DB_USER=<data_base_user_name>
-     # - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
-     # - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
-     # - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
-    volumes:
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   reports-web:
+      container_name: reports_web_container
+      image: gcr.io/boldreports-294612/boldreports-server:6.15.11
+      restart: on-failure
+      volumes: 
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+         interval: 10s
+         timeout: 10s
+         retries: 5
 
-  reports-web:
-    container_name: reports_web_container
-    image: gcr.io/boldreports-294612/boldreports-server:6.15.11
-    restart: on-failure
-    volumes: 
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   reports-api:
+      container_name: reports_api_container
+      image: gcr.io/boldreports-294612/boldreports-server-api:6.15.11
+      restart: on-failure
+      volumes: 
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - reports-web
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+         interval: 10s
+         timeout: 10s
+         retries: 5
 
-  reports-api:
-    container_name: reports_api_container
-    image: gcr.io/boldreports-294612/boldreports-server-api:6.15.11
-    restart: on-failure
-    volumes: 
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-      - reports-web
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   reports-jobs:
+      container_name: reports_jobs_container
+      image: gcr.io/boldreports-294612/boldreports-server-jobs:6.15.11
+      restart: on-failure
+      volumes: 
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - reports-web
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+         interval: 10s
+         timeout: 10s
+         retries: 5
 
-  reports-jobs:
-    container_name: reports_jobs_container
-    image: gcr.io/boldreports-294612/boldreports-server-jobs:6.15.11
-    restart: on-failure
-    volumes: 
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-      - reports-web
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   reports-dataservice:
+      container_name: reports_dataservice_container
+      image: gcr.io/boldreports-294612/boldreports-designer:6.15.11
+      restart: on-failure
+      # environment:                         ## Refer README.md for available environment variables.
+      #   - widget_bing_map_enable=false
+      #   - widget_bing_map_api_key=""
+      #   - AppSettings__locale-path=""
+      #   - AppSettings__BrowserTimezone=fasle
+      #   - AppSettings__CustomSizePDFExport=fasle
+      volumes:
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - reports-web
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+         interval: 10s
+         timeout: 10s
+         retries: 5
 
-  reports-dataservice:
-    container_name: reports_dataservice_container
-    image: gcr.io/boldreports-294612/boldreports-designer:6.15.11
-    restart: on-failure
-    # environment:                         ## Refer README.md for available environment variables.
-    #   - widget_bing_map_enable=false
-    #   - widget_bing_map_api_key=""
-    #   - AppSettings__locale-path=""
-    #   - AppSettings__BrowserTimezone=fasle
-    #   - AppSettings__CustomSizePDFExport=fasle
-    volumes:
-      - boldservices_data:/application/app_data
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-      - reports-web
-    healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-        interval: 10s
-        timeout: 10s
-        retries: 5
+   reverse-proxy:
+      container_name: nginx
+      image: nginx
+      restart: on-failure
+      volumes:
+         -  "<default_conf_path>:/etc/nginx/conf.d/default.conf"
+         # - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
+         # - "<ssl_key_file_path>:/etc/ssl/domain.key"
+      ports:
+         - "8085:80"
+         # - "443:443"
+      environment:
+         - NGINX_PORT=80
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - id-api
+         - id-ums
+         - reports-web
+         - reports-api
+         - reports-jobs
+         - reports-dataservice
+   pgdb:
+      image: postgres
+      restart: always
+      environment:
+         POSTGRES_PASSWORD: <Password>
+      volumes:
+         - db_data:/var/lib/postgresql/data/
+      networks:
+         - boldservices
 
-  reverse-proxy:
-    container_name: nginx
-    image: nginx
-    restart: on-failure
-    volumes:
-      -  "<default_conf_path>:/etc/nginx/conf.d/default.conf"
-      # - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
-      # - "<ssl_key_file_path>:/etc/ssl/domain.key"
-    ports:
-      - "8085:80"
-      # - "443:443"
-    environment:
-      - NGINX_PORT=80
-    networks:
-      - boldservices
-    depends_on:
-      - id-web
-      - id-api
-      - id-ums
-      - reports-web
-      - reports-api
-      - reports-jobs
-      - reports-dataservice
-  pgdb:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: <Password>
-    volumes:
-      - db_data:/var/lib/postgresql/data/
-    networks:
-      - boldservices
+   networks:
+   boldservices:
 
-networks:
-  boldservices:
-
-volumes:
-  boldservices_data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '<host_path_boldservices_data>'
-  db_data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '<host_path_db_data>'
+   volumes:
+   boldservices_data:
+      driver: local
+      driver_opts:
+         type: 'none'
+         o: 'bind'
+         device: '<host_path_boldservices_data>'
+   db_data:
+      driver: local
+      driver_opts:
+         type: 'none'
+         o: 'bind'
+         device: '<host_path_db_data>'
 
 5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
    For example,
@@ -259,6 +257,7 @@ For example,
    > **Note:** The docker volumes boldservices_data and db_data persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes]()
 
 10. If you need to use Bing Map widget feature, enable this to true and enter the API key value for `- widget_bing_map_api_key`. By default this feature will be set to false.
+
    ![bingmap](../images/bingmap.png)
 
 ## Build the project
