@@ -13,22 +13,22 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 4. Create a docker-compose.yml file that starts your `BoldReports` and a separate `PostgreSQL` instance with volume mounts for data persistence:
    > version: '3.5'<br />
      services:<br />
-       id-web:
-       > container_name: id_web_container
-       > image: gcr.io/boldreports-294612/bold-identity:6.15.11
-       > restart: on-failure
-       > environment:
-       >   - APP_BASE_URL=<app_base_url>
-       >   - INSTALL_OPTIONAL_LIBS=mongodb,mysql,influxdb,snowflake,oracle,clickhouse,google
-       > volumes: 
-       >   - boldservices_data:/application/app_data
-       > networks:
-       >   - boldservices
-       >  healthcheck:
-            > test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-            > interval: 10s
-            > timeout: 10s
-            > retries: 5
+       id-web:<br />
+       > container_name: id_web_container<br />
+       > image: gcr.io/boldreports-294612/bold-identity:6.15.11<br />
+       > restart: on-failure<br />
+       > environment:<br />
+       >   - APP_BASE_URL=<app_base_url><br />
+       >   - INSTALL_OPTIONAL_LIBS=mongodb,mysql,influxdb,snowflake,oracle,clickhouse,google<br />
+       > volumes:<br/>
+       >   - boldservices_data:/application/app_data<br />
+       > networks:<br />
+       >   - boldservices<br />
+       >  healthcheck:<br />
+            > test: ["CMD", "curl", "-f", "http://localhost/health-check"]<br />
+            > interval: 10s<br />
+            > timeout: 10s<br />
+            > retries: 5<br />
 
    > id-api:
      > container_name: id_api_container
