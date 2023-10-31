@@ -29,10 +29,10 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
          networks:
            - boldservices
           healthcheck:
-            > test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-            > interval: 10s
-            > timeout: 10s
-            > retries: 5
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
 
      id-api:
        container_name: id_api_container
@@ -56,15 +56,15 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
       restart: on-failure
       environment:
          - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
-      # - BOLD_SERVICES_UNLOCK_KEY=<Bold_Reports_license_key>
-      # - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
-      # - BOLD_SERVICES_DB_HOST=<data_base_server_host>
-      # - BOLD_SERVICES_DB_PORT=<data_base_server_port>
-      # - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
-      # - BOLD_SERVICES_DB_USER=<data_base_user_name>
-      # - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
-      # - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
-      # - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
+       #  - BOLD_SERVICES_UNLOCK_KEY=<Bold_Reports_license_key>
+       #  - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
+       #  - BOLD_SERVICES_DB_HOST=<data_base_server_host>
+       #  - BOLD_SERVICES_DB_PORT=<data_base_server_port>
+       #  - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
+       #  - BOLD_SERVICES_DB_USER=<data_base_user_name>
+       #  - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
+       #  - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
+       #  - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
       volumes:
          - boldservices_data:/application/app_data
       networks:
@@ -203,6 +203,7 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 
 
 5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
+
    For example,
    `http://example.com`
    `https://example.com`
@@ -216,18 +217,19 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 
 6. Uncommand and enter the variable information needed to complete the auto-deployment.
 
-   > environment:
-     > - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
-    > # - BOLD_SERVICES_UNLOCK_KEY=<Bold_Reports_license_key>
-    > # - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
-    > # - BOLD_SERVICES_DB_HOST=<data_base_server_host>
-    > # - BOLD_SERVICES_DB_PORT=<data_base_server_port>
-    > # - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
-    > # - BOLD_SERVICES_DB_USER=<data_base_user_name>
-    > # - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
-    > # - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
-    > # - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
-
+   ```sh
+     environment:
+       - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
+      # - BOLD_SERVICES_UNLOCK_KEY=<Bold_Reports_license_key>
+      # - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
+      # - BOLD_SERVICES_DB_HOST=<data_base_server_host>
+      # - BOLD_SERVICES_DB_PORT=<data_base_server_port>
+      # - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
+      # - BOLD_SERVICES_DB_USER=<data_base_user_name>
+      # - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
+      # - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
+      # - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
+   ```
 ## Environment variables details for configuring Application Startup in the backend.
 
 | Name               | Required    | Description |
@@ -245,20 +247,26 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 |`BOLD_SERVICES_USER_PASSWORD`                | Yes       | It should meet our password requirements.<br /><br /><b>Note:</b>Password must meet the following requirements. It must contain,At least 6 characters, 1 uppercase character, 1 lowercase character, 1 numeric character, 1 special character|
 
 Example:
+
 ![auto-deploy-env](../images/auto-deploy-env.png)
+
 7. You can also change the Port number other than `8085`
+
 8. Provide the **default.conf** file path, which you have downloaded earlier in `<default_conf_path>` place.
 
    For example,
+
    `"./default.conf:/etc/nginx/conf.d/default.conf"`
    `"D:/boldreports/docker/default.conf":"/etc/nginx/conf.d/default.conf"`
    `"/var/boldreports/docker/default.conf:/etc/nginx/conf.d/default.conf"`
 
    ![default-conf](../images/default_conf.png)
+
 9. Allocate a directory in your host machine to store the shared folders for applications’ usage. Replace the directory path with `<host_path_boldservices_data>` and `<host_path_db_data>` in **docker-compose.yml** file.
 
 For example,
-**Windows:** `device: 'D:/boldreports/boldservices_data'` and `device: 'D:/boldreports/db_data'`
+
+**Windows:** `device: 'D:/boldreports/boldservices_data'` and `device: 'D:/boldreports/db_data'`<br />
 **Linux:** `device: '/var/boldreports/boldservices_data'` and `device: '/var/boldreports/db_data'`
    > **Note:** The docker volumes boldservices_data and db_data persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes]()
 
