@@ -8,16 +8,16 @@ Bold Reports supports the following environment variables. You can find the name
 |`<host_path_for_appdata_files>`    | No                                                            | Persistent volume path for the Bold Reports application data|
 |`<host_path_for_nginx_config>`     | No                                                            |Persistent volume path for the Nginx configuration|
 
-## Environment variables for configuring Application Startup in backend
+## Environment variables for configuring `Application Startup` in backend
 
 The following Environment variables are optional. If not provided, a manual Application Startup configuration is needed.
 | Name               | Required    | Description |
 | -------------      | -------------       | ------------- |
-|`BOLD_SERVICES_UNLOCK_KEY`                   | Yes         | License key for activating Bold Reports. Please refer to [this document]() to download the key.<br />If you don't have the download key option, please create a support ticket here.|
+|`BOLD_SERVICES_UNLOCK_KEY`                   | Yes         | License key for activating Bold Reports. Please refer to [this document]() to download the key.<br />If you don't have the download key option, please create a support ticket [here]().|
 |`BOLD_SERVICES_DB_TYPE`                      | Yes         | Type of database server can be used for configuring Bold Reports.<br /><br />The following DB types are accepted:<br />1. mssql – Microsoft SQL Server/Azure SQL Database<br />2. postgresql – PostgreSQL Server<br />3. mysql – MySQL/MariaDB Server|
 |`BOLD_SERVICES_DB_HOST`                      | Yes         | Name of the Database Server|
 |`BOLD_SERVICES_DB_PORT`                      | No          | 	The system will use the following default port numbers based on the database server type.<br />PostgrSQL – 5234<br />MySQL -3306<br /><br />Please specify the port number for your database server if it is configured on a different port.<br /><br />For MS SQL Server, this parameter is not necessary.|
-|`BOLD_SERVICES_DB_USER`                      | Yes         | Username for the database server<br /><br />Please refer to this documentation for information on the user's permissions.|
+|`BOLD_SERVICES_DB_USER`                      | Yes         | Username for the database server<br /><br />Please refer to [this documentation]() for information on the user's permissions.|
 |`BOLD_SERVICES_DB_PASSWORD`                  | Yes         | The database user's password|
 |`BOLD_SERVICES_DB_NAME`                      | No          | If the database name is not specified, the system will create a new database called bold services.<br /><br />If you specify a database name, it should already exist on the server.|
 |`BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB`    | Yes         | For PostgreSQL DB Servers, this is an optional parameter.<br />The system will use the database name `postgres` by default.<br />If your database server uses a different default database, please provide it here.|
@@ -36,6 +36,6 @@ The following environment variables are optional. If they are not provided, Bold
 | BOLD_SERVICES_BRANDING_LOGIN_LOGO      | This is the login logo for the application, and the preferred image size is 200 x 40 pixels.|
 | BOLD_SERVICES_BRANDING_EMAIL_LOGO      | This is an email logo, and the preferred image size is 200 x 40 pixels.|
 BOLD_SERVICES_BRANDING_FAVICON           | This is a favicon, and the preferred image size is 40 x 40 pixels.|
-| BOLD_SERVICES_BRANDING_FOOTER_LOGO     | This is powered by the logo, and the preferred size is 100 x 25 pixels.<br /><br /><b>Note:</b>* All branding variables are accepted as URL.<br />* <b>Ex<br/>: https://example.com/loginlogo.jpg.<br />* <b>Image type:</b> png, svg, jpg, jpeg.<br/>* If you want to use custom branding, provide the value for all branding variables. If all variable values are given, the application will use the branding images, otherwise, it will take the default logos.|
+| BOLD_SERVICES_BRANDING_FOOTER_LOGO     | This is powered by the logo, and the preferred size is 100 x 25 pixels.<br /><br /><b>Note:</b><br />* All branding variables are accepted as URL.<br />* <b>Ex:</b> https://example.com/loginlogo.jpg.<br />* <b>Image type:</b> png, svg, jpg, jpeg.<br/>* If you want to use custom branding, provide the value for all branding variables. If all variable values are given, the application will use the branding images, otherwise, it will take the default logos.|
 | BOLD_SERVICES_SITE_NAME                | This is organization name.<br/>If the value is not given, the site will be deployed using the default name.|
 | BOLD_SERVICES_SITE_IDENTIFIER          | This is site identifier, and it will be the part of the application URL.<br />If the value is not given, the site will be deployed using the default value.
