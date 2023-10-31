@@ -80,7 +80,9 @@ In this section, you will learn how to run the Bold Reports application using ad
 1. [How to deploy Bold Reports using existing DB server?](./docs/how-to-deploy-bold-reports-using-existing-db-server.md)
 2. [How to deploy Bold Reports and configure startup manually?](./docs/how-to-deploy-bold-reports-and-configure-startup-manually.md)
 3. [How to use host path as Persistent Volume?](./docs/how-to-use-host-path-as-persistent-volume-for-bold-reports-deployment.md)
-4. [how-to-configure-ssl-for-docker-compose.md](../bold-reports-docker/docs/FAQ/how-to-configure-ssl-for-docker-compose.md)
+4. [How to configure SSL for Bold Reports application?  ](../bold-reports-docker/docs/FAQ/how-to-configure-ssl-for-docker-compose.md)
+5. [How to start multiple containers Bold Reports with Docker Compose?](../bold-reports-docker/docs/multiple-container.md)
+6. [Bold Reports supported environment variables and their usage?](../bold-reports-docker/docs/environment-variable.md)
 
 # License
 
