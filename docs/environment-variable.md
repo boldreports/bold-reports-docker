@@ -13,7 +13,7 @@ Bold Reports supports the following environment variables. You can find the name
 The following Environment variables are optional. If not provided, a manual Application Startup configuration is needed.
 | Name               | Required    | Description |
 | -------------      | -------------       | ------------- |
-|`BOLD_SERVICES_UNLOCK_KEY`                   | Yes         | License key for activating Bold Reports. Please refer to [this document]() to download the key.<br />If you don't have the download key option, please create a support ticket [here]().|
+|`BOLD_SERVICES_UNLOCK_KEY`                   | Yes         | License key for activating Bold Reports. Please refer to [this document](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) to download the key.<br />If you don't have the download key option, please create a support ticket [here](https://support.boldreports.com/support/tickets/create).|
 |`BOLD_SERVICES_DB_TYPE`                      | Yes         | Type of database server can be used for configuring Bold Reports.<br /><br />The following DB types are accepted:<br />1. mssql – Microsoft SQL Server/Azure SQL Database<br />2. postgresql – PostgreSQL Server<br />3. mysql – MySQL/MariaDB Server|
 |`BOLD_SERVICES_DB_HOST`                      | Yes         | Name of the Database Server|
 |`BOLD_SERVICES_DB_PORT`                      | No          | 	The system will use the following default port numbers based on the database server type.<br />PostgrSQL – 5234<br />MySQL -3306<br /><br />Please specify the port number for your database server if it is configured on a different port.<br /><br />For MS SQL Server, this parameter is not necessary.|
