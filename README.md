@@ -82,7 +82,8 @@ In this section, you will learn how to run the Bold Reports application using ad
 3. [How to use host path as Persistent Volume?](./docs/how-to-use-host-path-as-persistent-volume-for-bold-reports-deployment.md)
 4. [How to configure SSL for Bold Reports application?  ](./docs/FAQ/how-to-configure-ssl-for-docker-compose.md)
 5. [How to start multiple containers Bold Reports with Docker Compose?](./docs/multiple-container.md)
-6. [Bold Reports supported environment variables and their usage?](./docs/environment-variable.md)
+6. [How to start multiple containers podman Bold Reports with Docker Compose?](./docs/multiple-container-podman.md)
+7. [Bold Reports supported environment variables and their usage?](./docs/environment-variable.md)
 
 # License
 
@@ -104,3 +105,4 @@ It is the image user's responsibility to ensure that any use of this image compl
 
 [How to auto deploy multiple services Bold Reports via docker-compose?](./docs/FAQ/how-to-auto-deploy-bold-reports-multiple-services-in-docker-compose.md)
 
+[How to upgrade a new image in docker environment using docker compose yaml file?](./docs/upgrade.md)
