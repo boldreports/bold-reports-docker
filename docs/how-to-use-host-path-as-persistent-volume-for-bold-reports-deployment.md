@@ -43,3 +43,5 @@ You can store the application data on your host machine to make the Bold Reports
 **Application Startup**
 
 Configure the Bold Reports On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
+
+https://help.boldreports.com/enterprise-reporting/administrator-guide/application-startup/
