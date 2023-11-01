@@ -23,7 +23,7 @@ In the following section, we will deploy a single container Bold Reports applica
    docker-compose up -d
    ```
    ![docker-compose-up](./images/docker-compose-up.png)
-   > **Note:** The docker volumes boldreports_data persists data of Bold Reports. [Learn more about docker volumes]
+   > **Note:** The docker volumes boldreports_data persists data of Bold Reports.[Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
 4. After running the command, access the Bold Reports App by entering `APP_URL` in a browser. At this point, Bold Reports should be running in `<app_url>:8085` (as appropriate)
 
    ![docker-startup](../docs/images/docker-startup.png)
@@ -33,6 +33,7 @@ In the following section, we will deploy a single container Bold Reports applica
 
 Configure the Bold Reports On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
 
+https://help.boldreports.com/embedded-reports/application-startup
 
 ### Shutdown and Cleanup
 
