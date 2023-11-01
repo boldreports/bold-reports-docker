@@ -254,10 +254,9 @@ Example:
 
 8. Provide the **default.conf** file path, which you have downloaded earlier in `<default_conf_path>` place.
 
-   For example,
-
-   `"./default.conf:/etc/nginx/conf.d/default.conf"`
-   `"D:/boldreports/docker/default.conf":"/etc/nginx/conf.d/default.conf"`
+   For example,<br />
+   `"./default.conf:/etc/nginx/conf.d/default.conf"`<br />
+   `"D:/boldreports/docker/default.conf":"/etc/nginx/conf.d/default.conf"`<br />
    `"/var/boldreports/docker/default.conf:/etc/nginx/conf.d/default.conf"`
 
    ![default-conf](../images/default_conf.png)
