@@ -66,7 +66,7 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
      ```
      ![docker-compose-up](docs/images/docker-compose-up.png)
 
-  4. Now, access the Bold Reports application by entering the URL as http://localhost:8085 or http://host-ip:8085 in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+  4. Now, access the Bold Reports application by entering the URL as `http://localhost:8085` or `http://host-ip:8085` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
     ![docker-startup](docs/images/docker-startup.png)
   
 # Upgrade Bold Reports
@@ -90,7 +90,7 @@ https://www.boldreports.com/terms-of-use/on-premise<br />
 
 The images are provided for your convenience and may contain other software that is licensed differently (Linux system, Bash, etc. from the base distribution, along with any direct or indirect dependencies of the Bold Reports platform).
 
-These pre-built images are provided for convenience and include all optional and additional libraries by default. These libraries may be subject to different licenses than the Bold Reports product.
+These pre-built images are provided for your convenience and include all optional and additional libraries by default. These libraries may be subject to different licenses than the Bold Reports product.
 
 If you want to install Bold Reports from scratch and precisely control which optional libraries are installed, please download the stand-alone product from boldreports.com. If you have any questions, please contact the Bold Reports team (https://www.boldreports.com/support).
 
