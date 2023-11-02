@@ -50,14 +50,14 @@ cd /application/utilities/adminutils/
 ```sh
 dotnet Syncfusion.Server.Commands.Utility.dll dbconfig -servername "localhost" -databasename "BoldReportsMasterDatabase" -u "Admin" -p "Admin@12345" -iswindowsauthentication false -sslenabled false -port "5432" -additionalparameters "Pooling=True"   
 ``` 
-> **Important:**command details:
-> servername – SQL server hostname/IP
-> databasename – SQL database name
-> u – SQL server username
-> p – SQL server password
-> port - Port number required for PostgreSQL and MySQL
-> iswindowsauthentication – Is windows authentication required (Required for MSSQL only)
-> sslenabled – Is encrypted connection required (this is optional)
+> **Important:**command details:<br />
+> servername – SQL server hostname/IP<br />
+> databasename – SQL database name<br />
+> u – SQL server username<br />
+> p – SQL server password<br />
+> port - Port number required for PostgreSQL and MySQL<br />
+> iswindowsauthentication – Is windows authentication required (Required for MSSQL only)<br />
+> sslenabled – Is encrypted connection required (this is optional)<br />
 > additionalparameters - Additional parameters required for database connection (this is optional)
 
 ![database-reset](../images/database-reset.png)

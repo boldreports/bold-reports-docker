@@ -37,6 +37,7 @@ You can store the application data on your host machine to make the Bold Reports
    ```
 
 2. After running the command, access the Bold Reports App by entering `APP_URL` in a browser. At this point, Bold Reports should be running in `<app_url>` (as appropriate)
+
    ![docker-startup](../docs/images/docker-startup.png)
    > **Note:** The BoldReports site is not immediately available because the containers are still being initialized and may take a couple of minutes for the first load.
 

@@ -9,11 +9,12 @@ In the following section, we will deploy a single container Bold Reports applica
    curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/main/deploy/single-container/docker-compose.yml"
    ```
 2. Open the docker compose file and fill the mandatory field - APP_URL
+
    ![docker-compose-database-detail](/docs/images/single-container-app-url.png)
 
    **APP_URL Guidance:**
-   * Provide the HTTP scheme for APP_BASE_URL value. For example,
-     `http://example.com`
+   * Provide the HTTP scheme for APP_BASE_URL value. For example,<br />
+     `http://example.com`<br />
      `http://<public_ip_address>`
    * For `Windows` and `MacOS` use either http://host.docker.internal or http://localhost. Docker Desktop provides `host.docker.internal` and gateway.docker.internal DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts).
    * For `Linux` use the Machine Public IP address as the value for APP_URL with the HTTP scheme.

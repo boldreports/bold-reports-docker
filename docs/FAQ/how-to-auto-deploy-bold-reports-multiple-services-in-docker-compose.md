@@ -1,5 +1,5 @@
 # How to auto deploy multiple services Bold Reports via docker-compose.
-This section allows you to deploy Bold Reports in docker-compose without manual activation of licensing and configuring startup from the browser.
+This section allows you to deploy [Bold Reports](https://www.boldreports.com/) in docker-compose without manual activation of licensing and configuring startup from the browser.
 
 ## Steps for Bold Reports multiple services auto deployment using docker-compose.
 1. Create an empty project directory.
@@ -204,10 +204,10 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 
 5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
 
-   For example,
-   `http://example.com`
-   `https://example.com`
-   `http://<public_ip_address>`
+   For example,<br />
+   `http://example.com`<br />
+   `https://example.com`<br />
+   `http://<public_ip_address>`<br />
    `http://host.docker.internal`
 
    > **Note:**
@@ -234,7 +234,7 @@ This section allows you to deploy Bold Reports in docker-compose without manual 
 
 | Name               | Required    | Description |
 | -------------      | -------------       | ------------- |
-|`BOLD_SERVICES_UNLOCK_KEY`                  | Yes      | License key for activating the Bold Reports. Please refer to [this document]() to download the key.<br />If you don't have the download key option, please create a support ticket [here]().|
+|`BOLD_SERVICES_UNLOCK_KEY`                  | Yes      | License key for activating the Bold Reports. Please refer to [this document](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) to download the key.<br />If you don't have the download key option, please create a support ticket [here](https://support.boldreports.com/support/tickets/create).|
 |`BOLD_SERVICES_DB_TYPE`                     | Yes      | Type of database server can be used for configuring the Bold Reports.<br /><br />The following DB types are accepted:<br />1. mssql – Microsoft SQL Server/Azure SQL Database<br />2. postgresql – PostgreSQL Server<br />3. mysql – MySQL/MariaDB Server|
 |`BOLD_SERVICES_DB_HOST`                     | Yes      | Name of the Database Server|
 |`BOLD_SERVICES_DB_PORT`                     | No       | The system will use the following default port numbers based on the database server type.<br />PostgrSQL – 5234<br />MySQL -3306<br /><br />Please specify the port number for your database server if it is configured on a different port.<br /><br />For MS SQL Server, this parameter is not necessary.|
@@ -267,7 +267,7 @@ For example,
 
 **Windows:** `device: 'D:/boldreports/boldservices_data'` and `device: 'D:/boldreports/db_data'`<br />
 **Linux:** `device: '/var/boldreports/boldservices_data'` and `device: '/var/boldreports/db_data'`
-   > **Note:** The docker volumes boldservices_data and db_data persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes]()
+   > **Note:** The docker volumes boldservices_data and db_data persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
 
 10. If you need to use Bing Map widget feature, enable this to true and enter the API key value for `- widget_bing_map_api_key`. By default this feature will be set to false.
 
@@ -286,14 +286,14 @@ At this point, BoldReports should be running in <app_base_url>:8085 (as appropri
 ## Application Startup
 Configure the Bold Reports On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
 
-https://help.boldreports.com/embedded-reports/application-startup
+https://help.boldreports.com/enterprise-reporting/administrator-guide/application-startup/
 
    > **Note:** To use the above configured PostgreSQL server in Bold Reports please use `pgdb` as the PostgreSQL server name.
 
 ## Shutdown and cleanup
-The command docker-compose down removes the containers and default network, but preserves the volumes of Bold Reports and PostgreSQL.
+The command `docker-compose down` removes the containers and default network, but preserves the volumes of Bold Reports and PostgreSQL.
 
-The command docker-compose down --volumes removes the containers, default network, and all the volumes.
+The command `docker-compose down --volumes` removes the containers, default network, and all the volumes.
 
 
 
