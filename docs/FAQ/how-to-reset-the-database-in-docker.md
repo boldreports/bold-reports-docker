@@ -50,7 +50,7 @@ cd /application/utilities/adminutils/
 ```sh
 dotnet Syncfusion.Server.Commands.Utility.dll dbconfig -servername "localhost" -databasename "BoldReportsMasterDatabase" -u "Admin" -p "Admin@12345" -iswindowsauthentication false -sslenabled false -port "5432" -additionalparameters "Pooling=True"   
 ``` 
->**Important:**command details:<br />
+><b>Important:</b>command details:<br />
 > servername – SQL server hostname/IP<br />
 > databasename – SQL database name<br />
 > u – SQL server username<br />
