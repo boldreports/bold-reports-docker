@@ -28,7 +28,7 @@ The following Environment variables are optional. If not provided, a manual Appl
 
 ## Environment variables for configuring `Branding` in backend
 
-The following environment variables are optional. If they are not provided, Bold BI will use the default configured values.
+The following environment variables are optional. If they are not provided, Bold Reports will use the default configured values.
 
 | Name               | Description    |
 | -------------      | -------------       |
