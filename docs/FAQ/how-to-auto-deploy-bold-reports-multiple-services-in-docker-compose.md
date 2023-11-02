@@ -5,7 +5,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 1. Create an empty project directory.
    You can name the directory something easy for you to remember. This directory is the context for your application image. This project directory should contains a `docker-compose.yml` file which is complete in itself for a good starter BoldReports project.
 
-2. Download the configuration files [here](). This directory includes docker-compose YML file and configuration file for Nginx.
+2. Download the configuration files [here](https://github.com/boldreports/bold-reports-docker/tree/master/deploy/multiple-container). This directory includes docker-compose YML file and configuration file for Nginx.
    > **Tip:** You can use either a `.yml` or `.yaml` extension for this file. They both works well.
 
 3. Change into your project directory. For example, if you named your directory my_boldreports
