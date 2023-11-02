@@ -34,7 +34,7 @@ The following hardware requirements are necessary to run the Bold Reports soluti
 The following software requirements are necessary to run the Bold Reports Enterprise edition:
 
 * Database: Microsoft SQL Server 2012+ | PostgreSQL | MySQL
-* Application: Docker, Podman
+* Application: [Docker](https://docs.docker.com/engine/), Podman
 * Web Browser: Microsoft Edge, Mozilla Firefox, and Chrome
 
 # Supported tags
@@ -69,10 +69,6 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
   4. Now, access the Bold Reports application by entering the URL as `http://localhost:8085` or `http://host-ip:8085` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
     ![docker-startup](docs/images/docker-startup.png)
   
-# Upgrade Bold Reports
-
-If you are upgrading Bold Reports to 5.3.8, please follow the steps in this [link](/docs/upgrade.md).
-
 # How to Deploy Bold Reports using Advanced Configuration?
 
 In this section, you will learn how to run the Bold Reports application using advanced configurations such as configuring Bold Reports using an existing DB server, using a host directory as a persistent volume, configuring startup manually, configuring an SSL certificate, and running a multi-container Reports application.
