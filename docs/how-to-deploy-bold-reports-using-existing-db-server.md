@@ -7,6 +7,7 @@ In the following section, we are going to run the Bold Reports application by pa
    curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/main/deploy/single-container-with-env-variable/docker-compose.yml"
    ```
 2. Open the docker compose file and fill the mandatory fields - **APP_BASE_URL, Unlock Key** and **Database details**
+
    ![docker-compose-database-variable](/docs/images/database-env-value.png)
 
    **APP_BASE_URL Guidance:**
