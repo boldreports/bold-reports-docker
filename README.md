@@ -105,4 +105,4 @@ It is the image user's responsibility to ensure that any use of this image compl
 
 [How to upgrade a new image in docker environment using docker compose yaml file?](./docs/upgrade.md)
 
-[How to deploy Bold Reports on an ECS Fargate cluster using an Application Load Balancer](https://support.boldreports.com/agent/kb/14105)
+[How to deploy Bold Reports on an ECS Fargate cluster using an Application Load Balancer](https://support.boldreports.com/kb/article/14105/deploy-bold-reports-on-an-ecs-fargate-cluster-using-an-application-load-balancer)
