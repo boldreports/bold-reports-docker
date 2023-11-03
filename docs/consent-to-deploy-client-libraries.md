@@ -37,7 +37,7 @@ Find the names of client libraries, which needs to be passed as a comma separate
 | Npgsql 4.0.0              | postgresql    |
 | MySQLConnector 0.45.1     | mysql         |
 
-If you want to use all client libraries in the Bold Reports application, then pass the following string as value for `INSTALL_OPTIONAL_LIBS` environment variable. You need to add the names only for the libraries, which you are consenting to use with Bold Reports application
+If you want to use all client libraries in the Bold Reports application, then pass the following string as value for `INSTALL_OPTIONAL_LIBS` environment variable. You need to add the names only for the libraries, which you are consenting to use with Bold Reports application.
 
 `mysql,oracle,postgresql`
 
