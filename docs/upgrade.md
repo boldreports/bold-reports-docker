@@ -1,81 +1,108 @@
-# Upgrading Bold Reports to latest version
+<a href="https://www.boldreports.com"><img alt="boldreports" width="400" src="https://www.boldreports.com/wp-content/uploads/2019/08/bold-reports-logo.svg"></a>
+<br/>
+<br/>
 
-This section explains how to upgrade Bold Reports to latest version in your Docker. You can refer to the features and enhancements from this [Release Notes](https://www.boldreports.com/release-history/embedded-reporting).
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/boldreports/bold-reports-docker?sort=semver)](https://github.com/boldreports/bold-reports-docker/releases)
+[![Documentation](https://img.shields.io/badge/docs-help.boldreports.com-blue.svg)](https://help.boldreports.com/enterprise-reporting/)
+[![File Issues](https://img.shields.io/badge/file_issues-boldreports_support-blue.svg)](https://www.boldreports.com/support)
 
+# What is Bold Reports
 
-## Backup the existing data
-Before upgrading the Bold Reports to latest version, make sure to take the backup of the following items.
+Bold Reports Enterprise Reporting is a business intelligence report management tool built by Syncfusion for creating, managing, and distributing pixel-perfect paginated RDL reports behind your organization’s firewall.
 
-* Files and folders from the shared location, which you have mounted to the deployments by volume.
+Enterprise Reporting helps us to analyse, explain and report business information in our day-to-day life.
 
-* Database backup - Take a backup of Database, to restore incase if the upgrade was not successful or if applications are not working properly after the upgrade.
+## Deployment Prerequisites
 
+### Hardware requirements
 
-## Proceeding with upgrade for single container
-Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
+The following hardware requirements are necessary to run the Bold Reports solution:
 
- 1. If you are using the docker compose yaml file for deployment,
- You can download the latest docker-compose file from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.2.26/deploy/single-container/docker-compose.yml) and use the below command to down the containers from where you deploy the docker compose file.
+* Operating System: You can use the Bold Reports Docker and Podman on the following operating systems: 
+  * Windows
+  * Ubuntu 20.04 LTS
+  * Cent OS 7
+  * Mac
+  * Red Hat Enterprise Linux (RHEL)
+  * Alpine Linux
+* CPU: 4-core.
+* Memory: 16 GB RAM.
+* Disk Space: 8 GB or more.
 
-    ```sh
-     docker-compose down
-    ```
-    Copy the latest downloaded files and replace in the exisitng deployed folder then give the values in required fields which is already done for existing Bold Reports Application. 
+### Software requirements
 
-    And run the below command  to upgrade Bold Reports.
+The following software requirements are necessary to run the Bold Reports Enterprise edition:
 
-    ```sh
-     docker-compose up -d
-    ```
- 2. Else, You are using the command to deploy Bold Reports in single container, Please follow the below steps for upgrade and use the below command to get all the containers,
+* Database: Microsoft SQL Server 2012+ | PostgreSQL | MySQL
+* Application: [Docker](https://docs.docker.com/engine/), Podman
+* Web Browser: Microsoft Edge, Mozilla Firefox, and Chrome
 
-    ```sh
-     docker ps -a
-    ```
-    <img src="./images/all_container.png" alt="Image">
+# Supported tags
 
-    
-    Now we need to remove the container without deleting the persistant volume which is already mounted with this container
-    You can use the below command to remove the container.
-    
-    ```sh
-    docker rm --force <containername>
-    ```
+| Tags               | OS Version    | Last Modified |
+| -------------      | ------------- | ------------- |
+| `5.2.26_refresh_release`           | Ubuntu 20.04  (amd64)    | 18/07/2023 |
+| `5.2.26_refresh_release_alpine`    | Alpine 3.13  (amd64)  | 18/07/2023 |
+| `5.2.26_refresh_release_debian`     | Debian 10  (amd64,arm64)        | 18/07/2023 |
+|`5.2.26_refresh_release_arm64`|Debian 10 (arm64)|18/07/2023 |
+|`5.2.26_refresh_release_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 18/07/2023 |
 
-    #### Example: docker rm --force boldreports
+Note: The tag `5.2.26_refresh_release_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
 
-    Now we need to create a container with same container name and persistant volume path.
+# How to use this image
 
-    ```sh 
-    docker run --name boldreports -p 80:80 -p 443:443 \
-     -e APP_URL=<app_base_url> \
-     -e OPTIONAL_LIBS=<optional_library_names> \
-     -v <existing_host_path_for_appdata_files>:/application/app_data \
-     -v <existing_host_path_for_nginx_config>:/etc/nginx/sites-available \
-     -d syncfusion/boldreports:<tag> 
-    ```
+The above Bold Reports image can be deployed using Docker or Docker Compose. In the following section, we are going to start the Bold Reports application and a separate PostgreSQL instance with volume mounts for data persistence using Docker Compose.
 
-    #### Example: docker run --name boldreports -p 8085:80 -p 443:443 -e APP_URL="http://10.103.215.44:8085" -e OPTIONAL_LIBS="mysql,oracle,postgresql" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:5.2.26_refresh_release
+  1. Download the Docker Compose file by using the following command.
+  ```sh
+  curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/main/deploy/single-container-pre-configured/docker-compose.yml"
+  ```
+  2. Open the Docker Compose file, fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to [this](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) KB document to obtain the offline Bold Reports unlock key.
 
-    > **Note:**
-    > When upgrading Bold Reports, ensure that the volume mount remains the same, and only the tag needs to be changed.
-    > Once you run the container, please wait a couple of minutes to access the url. 
+     ![docker-compose-variable](docs/images/docker-compose-variable.png)
+  
+  3. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
+     ```sh
+     docker-compose up -d; docker-compose logs -f boldreports
+     ```
+     ![docker-compose-up](docs/images/docker-compose-up.png)
 
+  4. Now, access the Bold Reports application by entering the URL as `http://localhost:8085` or `http://host-ip:8085` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
-## Proceeding with upgrade for multiple container
-Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
+     ![docker-startup](docs/images/docker-startup.png)
+  
+# How to Deploy Bold Reports using Advanced Configuration?
 
-You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.2.26/deploy/multiple-container/docker-compose.yml)
-[default.conf](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v5.2.26/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
+In this section, you will learn how to run the Bold Reports application using advanced configurations such as configuring Bold Reports using an existing DB server, using a host directory as a persistent volume, configuring startup manually, configuring an SSL certificate, and running a multi-container Reports application.
 
-```sh
-docker-compose down
-```
+1. [How to deploy Bold Reports using existing DB server?](./docs/how-to-deploy-bold-reports-using-existing-db-server.md)
+2. [How to deploy Bold Reports and configure startup manually?](./docs/how-to-deploy-bold-reports-and-configure-startup-manually.md)
+3. [How to use host path as Persistent Volume?](./docs/how-to-use-host-path-as-persistent-volume-for-bold-reports-deployment.md)
+4. [How to configure SSL for Bold Reports application?  ](./docs/FAQ/how-to-configure-ssl-for-docker-compose.md)
+5. [How to start multiple containers Bold Reports with Docker Compose?](./docs/multiple-container.md)
+6. [How to start multiple containers podman Bold Reports with Docker Compose?](./docs/multiple-container-podman.md)
+7. [Bold Reports supported environment variables and their usage?](./docs/environment-variable.md)
 
-Copy the latest downloaded files and replace in the exisitng deployed folder then give the values in required fields which is already done for existing Bold Reports Application.
+# License
 
-And run the below command to upgrade Bold Reports.
+https://www.boldreports.com/terms-of-use/on-premise<br />
 
-```sh
-docker-compose up -d
-```
+The images are provided for your convenience and may contain other software that is licensed differently (Linux system, Bash, etc. from the base distribution, along with any direct or indirect dependencies of the Bold Reports platform).
+
+These pre-built images are provided for your convenience and include all optional and additional libraries by default. These libraries may be subject to different licenses than the Bold Reports product.
+
+If you want to install Bold Reports from scratch and precisely control which optional libraries are installed, please download the stand-alone product from boldreports.com. If you have any questions, please contact the Bold Reports team (https://www.boldreports.com/support).
+
+It is the image user's responsibility to ensure that any use of this image complies with any relevant licenses for all software contained within.
+
+# FAQ
+
+[How to configure SSL for Bold Reports Application in single container and multiple container?](https://github.com/boldreports/bold-reports-docker/blob/master/docs/FAQ/how-to-configure-ssl-for-docker-compose.md)
+
+[How to reset the database for Bold Reports application in docker environment?](./docs/FAQ/how-to-reset-the-database-in-docker.md)
+
+[How to auto deploy multiple services Bold Reports via docker-compose?](./docs/FAQ/how-to-auto-deploy-bold-reports-multiple-services-in-docker-compose.md)
+
+[How to upgrade a new image in docker environment using docker compose yaml file?](./docs/upgrade.md)
+
+[How to deploy Bold Reports on an ECS Fargate cluster using an Application Load Balancer](https://support.boldreports.com/kb/article/14105/deploy-bold-reports-on-an-ecs-fargate-cluster-using-an-application-load-balancer)
