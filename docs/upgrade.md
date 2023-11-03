@@ -74,7 +74,7 @@ docker-compose down
 
 Copy the latest downloaded files and replace in the exisitng deployed folder then give the values in required fields which is already done for existing Bold Reports Application.
 
-And run the below command to upgrade Bold Reports
+And run the below command to upgrade Bold Reports.
 
 ```sh
 docker-compose up -d
