@@ -17,18 +17,16 @@ services:
      - BOLD_SERVICES_DB_PASSWORD=Admin@123
      - BOLD_SERVICES_USER_EMAIL=demo@boldreports.com
      - BOLD_SERVICES_USER_PASSWORD=Admin@123
-    # - OPTIONAL_LIBS=<comma_separated_library_names>
    networks:
      - boldreports
    volumes:
      - boldreports_data:/application/app_data
     
   pgdb:
-    container_name: postgres
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: <Password>
+      POSTGRES_PASSWORD: Admin@123
     volumes:
       - db_data:/var/lib/postgresql/data/
     networks:
@@ -39,14 +37,4 @@ networks:
   
 volumes:
   boldreports_data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '<host_path_boldreports_data>'
   db_data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '<host_path_db_data>'
