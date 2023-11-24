@@ -1,0 +1,53 @@
+version: '3.5'
+
+services:
+  boldreports:
+   container_name: boldreports
+   image: syncfusion/boldreports
+   restart: always
+   ports:
+     - 8085:80
+   environment:
+    # - APP_URL=<APP_URL>
+     - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY>
+     - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
+     - BOLD_SERVICES_DB_HOST=<data_base_server_host>
+     - BOLD_SERVICES_DB_PORT=<data_base_server_port>
+     - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
+     - BOLD_SERVICES_DB_USER=<data_base_user_name>
+     - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
+     - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
+     - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
+    # - OPTIONAL_LIBS=<comma_separated_library_names>
+   networks:
+     - boldreports
+   volumes:
+     - boldreports_data:/application/app_data
+    
+  pgdb:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: <Password>
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    networks:
+      - boldreports
+
+networks:
+  boldreports:
+  
+volumes:
+  boldreports_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '<host_path_boldreports_data>'
+  db_data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '<host_path_db_data>'
