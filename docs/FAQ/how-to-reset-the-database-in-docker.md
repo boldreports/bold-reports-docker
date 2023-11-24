@@ -2,8 +2,6 @@
 
 This section explain how to reset the application database of Bold Reports server application through the command line interface.
 
-* [Single image deployment](#single-container-deployment)
-
 ## Single container deployment
 
 1. Open the command prompt and Bash the container then change the directory to the admin utility location.
