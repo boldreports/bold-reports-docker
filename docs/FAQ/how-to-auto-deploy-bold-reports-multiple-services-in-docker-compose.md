@@ -19,7 +19,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
      services:
        id-web:
          container_name: id_web_container
-         image: gcr.io/boldreports-294612/bold-identity:6.15.11
+         image: gcr.io/boldreports-294612/bold-identity:5.3.8
          restart: on-failure
          environment:
            - APP_BASE_URL=<app_base_url>
@@ -36,7 +36,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
      id-api:
        container_name: id_api_container
-       image: gcr.io/boldreports-294612/bold-identity-api:6.15.11
+       image: gcr.io/boldreports-294612/bold-identity-api:5.3.8
        restart: on-failure
        volumes: 
          - boldservices_data:/application/app_data
@@ -52,7 +52,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    id-ums:
       container_name: id_ums_container
-      image: gcr.io/boldreports-294612/bold-ums:6.15.11
+      image: gcr.io/boldreports-294612/bold-ums:5.3.8
       restart: on-failure
       environment:
          - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
@@ -79,7 +79,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-web:
       container_name: reports_web_container
-      image: gcr.io/boldreports-294612/boldreports-server:6.15.11
+      image: gcr.io/boldreports-294612/boldreports-server:5.3.8
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -95,7 +95,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-api:
       container_name: reports_api_container
-      image: gcr.io/boldreports-294612/boldreports-server-api:6.15.11
+      image: gcr.io/boldreports-294612/boldreports-server-api:5.3.8
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -112,7 +112,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-jobs:
       container_name: reports_jobs_container
-      image: gcr.io/boldreports-294612/boldreports-server-jobs:6.15.11
+      image: gcr.io/boldreports-294612/boldreports-server-jobs:5.3.8
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -129,7 +129,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-dataservice:
       container_name: reports_dataservice_container
-      image: gcr.io/boldreports-294612/boldreports-designer:6.15.11
+      image: gcr.io/boldreports-294612/boldreports-designer:5.3.8
       restart: on-failure
       # environment:                         ## Refer README.md for available environment variables.
       #   - widget_bing_map_enable=false
