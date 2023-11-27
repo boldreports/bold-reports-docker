@@ -4,7 +4,7 @@ In the following section, we are going to run the Bold Reports application by pa
 
 1. Download docker compose file using the following command.
    ```sh
-   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/main/deploy/single-container-with-env-variable/docker-compose.yml"
+   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-with-env-variable/docker-compose.yml"
    ```
 2. Open the docker compose file and fill the mandatory fields - **APP_BASE_URL, Unlock Key** and **Database details**
 
