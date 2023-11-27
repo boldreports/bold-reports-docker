@@ -6,7 +6,7 @@ In the following section, we will deploy a single container Bold Reports applica
 
 1. Download docker compose file using the following command.
    ```sh
-   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/main/deploy/single-container/docker-compose.yml"
+   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container/docker-compose.yml"
    ```
 2. Open the docker compose file and fill the mandatory field - APP_URL
 
