@@ -19,7 +19,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
      services:
        id-web:
          container_name: id_web_container
-         image: gcr.io/boldreports-294612/bold-identity:5.3.8
+         image: gcr.io/boldreports-294612/bold-identity:5.4.20
          restart: on-failure
          environment:
            - APP_BASE_URL=<app_base_url>
@@ -36,7 +36,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
      id-api:
        container_name: id_api_container
-       image: gcr.io/boldreports-294612/bold-identity-api:5.3.8
+       image: gcr.io/boldreports-294612/bold-identity-api:5.4.20
        restart: on-failure
        volumes: 
          - boldservices_data:/application/app_data
@@ -52,7 +52,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    id-ums:
       container_name: id_ums_container
-      image: gcr.io/boldreports-294612/bold-ums:5.3.8
+      image: gcr.io/boldreports-294612/bold-ums:5.4.20
       restart: on-failure
       environment:
          - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
@@ -79,7 +79,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-web:
       container_name: reports_web_container
-      image: gcr.io/boldreports-294612/boldreports-server:5.3.8
+      image: gcr.io/boldreports-294612/boldreports-server:5.4.20
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -95,7 +95,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-api:
       container_name: reports_api_container
-      image: gcr.io/boldreports-294612/boldreports-server-api:5.3.8
+      image: gcr.io/boldreports-294612/boldreports-server-api:5.4.20
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -112,7 +112,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-jobs:
       container_name: reports_jobs_container
-      image: gcr.io/boldreports-294612/boldreports-server-jobs:5.3.8
+      image: gcr.io/boldreports-294612/boldreports-server-jobs:5.4.20
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -129,7 +129,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-dataservice:
       container_name: reports_dataservice_container
-      image: gcr.io/boldreports-294612/boldreports-designer:5.3.8
+      image: gcr.io/boldreports-294612/boldreports-designer:5.4.20
       restart: on-failure
       # environment:                         ## Refer README.md for available environment variables.
       #   - widget_bing_map_enable=false
@@ -238,7 +238,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 |`BOLD_SERVICES_DB_TYPE`                     | Yes      | Type of database server can be used for configuring the Bold Reports.<br /><br />The following DB types are accepted:<br />1. mssql – Microsoft SQL Server/Azure SQL Database<br />2. postgresql – PostgreSQL Server<br />3. mysql – MySQL/MariaDB Server|
 |`BOLD_SERVICES_DB_HOST`                     | Yes      | Name of the Database Server|
 |`BOLD_SERVICES_DB_PORT`                     | No       | The system will use the following default port numbers based on the database server type.<br />PostgrSQL – 5234<br />MySQL -3306<br /><br />Please specify the port number for your database server if it is configured on a different port.<br /><br />For MS SQL Server, this parameter is not necessary.|
-|`BOLD_SERVICES_DB_USER`                     | Yes       | Username for the database server<br /><br />Please refer to [this documentation}(https://help.boldreports.com/enterprise-reporting/administrator-guide/faq/what-are-the-database-permissions-required-to-set-up-bold-reports/) for information on the user's permissions.|
+|`BOLD_SERVICES_DB_USER`                     | Yes       | Username for the database server<br /><br />Please refer to [this documentation](https://help.boldreports.com/enterprise-reporting/administrator-guide/faq/what-are-the-database-permissions-required-to-set-up-bold-reports/) for information on the user's permissions.|
 |`BOLD_SERVICES_DB_PASSWORD`                 | Yes       | The database user's password|
 |`BOLD_SERVICES_DB_NAME`                     | No        | If the database name is not specified, the system will create a new database called bold services.<br /><br />If you specify a database name, it should already exist on the server.|
 |`BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB`   | Yes       | For PostgreSQL DB Servers, this is an optional parameter.<br />The system will use the database name `postgres` by default.<br />If your database server uses a different default database, please provide it here.|
