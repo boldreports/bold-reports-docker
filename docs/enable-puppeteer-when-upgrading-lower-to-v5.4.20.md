@@ -7,7 +7,7 @@
      ```sh
     cd /<host_path_for_appdata_files>/configuration/reporting
     ```
-	Example: /home/devops/bold-reportsvolume/reporting/configuration
+	#### Example: /home/devops/bold-reportsvolume/reporting/configuration
 
 2. Edit the config.xml file by using below command.
 
@@ -37,4 +37,4 @@
     docker restart <container name>
     ``````
 
-    Example: docker restart boldreports
+    #### Example: docker restart boldreports
