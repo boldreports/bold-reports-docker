@@ -1,4 +1,4 @@
-# Enable Puppeteer when upgrading lower version to 5.4.20
+# Enable Puppeteer when upgrading lower version to v5.4.20 or higher
 
 > **Important:** Puppeteer are necessary to achieve `image and PDF export` functionalities in reports,schedules from Bold Reports. Without these packages, the image and PDF export options in reports and schedules will no longer be available.
 
@@ -7,7 +7,7 @@
      ```sh
     cd /<host_path_for_appdata_files>/configuration/reporting
     ```
-	Example: root@multidockervm:/home/devops/bold-reportsvolume/reporting/configuration
+	Example: /home/devops/bold-reportsvolume/reporting/configuration
 
 2. Edit the config.xml file by using below command.
 
