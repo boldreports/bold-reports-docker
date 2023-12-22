@@ -61,6 +61,7 @@ Bold Reports updates the database schema of your current version to the latest v
     > When upgrading Bold Reports, ensure that the volume mount remains the same, and only the tag needs to be changed.
     > Once you run the container, please wait a couple of minutes to access the url. 
 
+After upgrading the bold reports application.Please refer [this](/docs/enable-puppeteer-when-upgrading-lower-to-v5.4.20.md) documentation for enable puppeteer.
 
 ## Proceeding with upgrade for multiple container
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
@@ -79,3 +80,5 @@ And run the below command to upgrade Bold Reports.
 ```sh
 docker-compose up -d
 ```
+
+After upgrading the bold reports application.Please refer [this](/docs/enable-puppeteer-when-upgrading-lower-to-v5.4.20.md) documentation for enable puppeteer.
