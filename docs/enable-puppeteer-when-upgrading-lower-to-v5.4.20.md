@@ -5,7 +5,7 @@
 1. Navigate to the following directory in the persistent volume.
 
      ```sh
-    cd /<host_path_for_appdata_files>/reporting/configuration
+    cd /<host_path_for_appdata_files>/configuration/reporting
     ```
 	Example: root@multidockervm:/home/devops/bold-reportsvolume/reporting/configuration
 
