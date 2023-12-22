@@ -127,6 +127,23 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
          timeout: 10s
          retries: 5
 
+   reports-viewer:
+      container_name: reports_viewer_container
+      image: gcr.io/boldreports-294612/boldreports-viewer:5.4.20
+      restart: on-failure
+      volumes: 
+         - boldservices_data:/application/app_data
+      networks:
+         - boldservices
+      depends_on:
+         - id-web
+         - reports-web
+      healthcheck:
+         test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+         interval: 10s
+         timeout: 10s
+         retries: 5
+
    reports-dataservice:
       container_name: reports_dataservice_container
       image: gcr.io/boldreports-294612/boldreports-designer:5.4.20
