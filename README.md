@@ -70,21 +70,24 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
    If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.
    Use http://host.docker.internal instead of http://localhost. Host machine localhost DNS will not be accessible inside the container. So, docker desktop provides `host.docker.internal` and `gateway.docker.internal` DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts) or Linux (/etc/hosts).
    Provide the HTTP or HTTPS scheme for APP_BASE_URL value.
-   You can also change the Port number other than 8085
+   You can also change the Port number other than 8085.
 
   ![docker-single-pre-conf](docs/images/single-container-pre-app-url.png)
 
-  3. Fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to [this](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) KB document to obtain the offline Bold Reports unlock key.
+  3. Fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to [this](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) KB document to obtain the offline Bold Reports unlock key. 
 
- ![docker-compose-variable](docs/images/docker-compose-variable.png)
+      ![docker-compose-variable](docs/images/docker-compose-variable.png)
   
-  3. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
+  4. Fill the Environment Variables and optional library by refer [this](docs/environment-variable.md). 
+  
+  
+  5. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
      ```sh
      docker-compose up -d; docker-compose logs -f boldreports
      ```
      ![docker-compose-up](docs/images/docker-compose-up.png)
-
-  4. Now, access the Bold Reports application by entering the URL as `http://host.docker.internal:8085` or `http://host-ip:8085` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+  
+  6. Now, access the Bold Reports application by entering the URL as `http://host.docker.internal:8085` or `http://host-ip:8085` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
      ![docker-startup](docs/images/docker-startup.png)
   
