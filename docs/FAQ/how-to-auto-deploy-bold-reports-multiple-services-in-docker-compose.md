@@ -23,7 +23,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
          restart: on-failure
          environment:
            - APP_BASE_URL=<app_base_url>
-           - INSTALL_OPTIONAL_LIBS=mongodb,mysql,influxdb,snowflake,oracle,clickhouse,google
+           - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
          volumes:
            - boldservices_data:/application/app_data
          networks:
@@ -148,12 +148,6 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
       container_name: reports_dataservice_container
       image: gcr.io/boldreports/boldreports-designer:5.4.20
       restart: on-failure
-      # environment:                         ## Refer README.md for available environment variables.
-      #   - widget_bing_map_enable=false
-      #   - widget_bing_map_api_key=""
-      #   - AppSettings__locale-path=""
-      #   - AppSettings__BrowserTimezone=fasle
-      #   - AppSettings__CustomSizePDFExport=fasle
       volumes:
          - boldservices_data:/application/app_data
       networks:
@@ -285,10 +279,6 @@ For example,
 **Windows:** `device: 'D:/boldreports/boldservices_data'` and `device: 'D:/boldreports/db_data'`<br />
 **Linux:** `device: '/var/boldreports/boldservices_data'` and `device: '/var/boldreports/db_data'`
    > **Note:** The docker volumes boldservices_data and db_data persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
-
-10. If you need to use Bing Map widget feature, enable this to true and enter the API key value for `- widget_bing_map_api_key`. By default this feature will be set to false.
-
-   ![bingmap](../images/bingmap.png)
 
 ## Build the project
 
