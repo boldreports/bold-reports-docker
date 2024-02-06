@@ -17,6 +17,7 @@ services:
      - BOLD_SERVICES_DB_PASSWORD=Admin@123
      - BOLD_SERVICES_USER_EMAIL=demo@boldreports.com
      - BOLD_SERVICES_USER_PASSWORD=Admin@123
+   # - OPTIONAL_LIBS=<comma_separated_library_names>
    networks:
      - boldreports
    volumes:

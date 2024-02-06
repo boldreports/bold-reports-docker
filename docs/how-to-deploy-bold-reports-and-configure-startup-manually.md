@@ -15,8 +15,8 @@ In the following section, we will deploy a single container Bold Reports applica
    **APP_URL Guidance:**
    * Provide the HTTP scheme for APP_BASE_URL value. For example,<br />
      `http://example.com`<br />
-     `http://<public_ip_address>`
-   * For `Windows` and `MacOS` use either http://host.docker.internal or http://localhost. Docker Desktop provides `host.docker.internal` and gateway.docker.internal DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts).
+     `http://<public_ip_address>:8085`
+   * For `Windows` and `MacOS` use either http://host.docker.internal. Docker Desktop provides `host.docker.internal` and gateway.docker.internal DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts).
    * For `Linux` use the Machine Public IP address as the value for APP_URL with the HTTP scheme.
 
 3. Run docker compose up command.
