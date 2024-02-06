@@ -57,20 +57,13 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
   ```sh
   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-pre-configured/docker-compose.yml"
   ```
-  2. Open the Docker Compose file, uncommnet the APP_URL and Replace <App_Url> with your DNS or IP address, by which you want to access the application.
+  2. Open the Docker Compose file, uncomment the APP_URL and replace <App_Url> with your DNS or IP address, by which you want to access the application.
 
       For example,  
       `http://example.com `  
       `https://example.com`  
-      `http://<public_ip_address>`  
-      `http://host.docker.internal`
-
-      Note:
-      
-      If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.
-      Use http://host.docker.internal instead of http://localhost. Host machine localhost DNS will not be accessible inside the container. So, docker desktop provides `host.docker.internal` and `gateway.docker.internal` DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts) or Linux (/etc/hosts).
-      Provide the HTTP or HTTPS scheme for APP_BASE_URL value.
-      You can also change the Port number other than 8085.
+      `http://<public_ip_address>:8085`  
+      `http://host.docker.internal:8085`
 
       ![docker-single-pre-conf](docs/images/single-container-pre-app-url.png)
 
