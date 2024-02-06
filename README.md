@@ -57,7 +57,7 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
   ```sh
   curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-pre-configured/docker-compose.yml"
   ```
-  2. Open the Docker Compose file, uncomment the APP_URL and replace <App_Url> with your DNS or IP address, by which you want to access the application.
+  2. Open the Docker Compose file, uncomment the APP_URL and replace <App_Url> with your DNS or IP address with port number, by which you want to access the application.
 
       For example,  
       `http://example.com `  
