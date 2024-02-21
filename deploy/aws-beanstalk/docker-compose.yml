@@ -1,0 +1,34 @@
+
+version: '3.5'
+services:
+  boldreports:
+   image: public.ecr.aws/x7k6q2v7/boldreports-single-docker:5.4.21
+   restart: always
+   ports:
+     - 8085:80
+   environment:
+     - APP_URL=<APP_URL>
+     #- OPTIONAL_LIBS=mysql,oracle,postgresql
+   networks:
+     - boldreports
+   volumes:
+     - boldreports_data:/application/app_data
+    
+  pgdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Admin@123
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+    networks:
+      - boldreports
+networks:
+  boldreports:
+  
+volumes:
+  boldreports_data:    
+  db_data:
+
+  
+    
