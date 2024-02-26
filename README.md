@@ -41,13 +41,13 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags               | OS Version    | Last Modified |
 | -------------      | ------------- | ------------- |
-| `5.4.20`           | Ubuntu 20.04  (amd64)    | 22/12/2023 |
-| `5.4.20_alpine`    | Alpine 3.13  (amd64)  | 22/12/2023 |
-| `5.4.20_debian`     | Debian 10  (amd64,arm64)        | 22/12/2023 |
-|`5.4.20_arm64`|Debian 10 (arm64)|22/12/2023 |
-|`5.4.20_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 22/12/2023 |
+| `5.4.30`           | Ubuntu 20.04  (amd64)    | 22/12/2023 |
+| `5.4.30_alpine`    | Alpine 3.13  (amd64)  | 22/12/2023 |
+| `5.4.30_debian`     | Debian 10  (amd64,arm64)        | 22/12/2023 |
+|`5.4.30_arm64`|Debian 10 (arm64)|22/12/2023 |
+|`5.4.30_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 22/12/2023 |
 
-Note: The tag `5.4.20_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
+Note: The tag `5.4.30_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
 
 # How to use this image
 
