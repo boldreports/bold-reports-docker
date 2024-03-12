@@ -8,16 +8,22 @@ services:
    ports:
      - 8085:80
    environment:
-    # - APP_URL=<APP_URL>
+  #  Please Provide the application base url or machine IP with the port number to access the site.
+     - APP_URL=<APP_URL>
+    #  Need to add the unlock key value from the unlock_key.lic, which we can obtain from the accounts page(https://www.boldreports.com/account).
      - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY>
+    #  PostgreSQL database details
+    #  PostgreSQL database are deployed along with this deployment. You can find the database password on line number 36 in this file.
      - BOLD_SERVICES_DB_TYPE=postgresql
      - BOLD_SERVICES_DB_HOST=pgdb
      - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=postgres
      - BOLD_SERVICES_DB_USER=postgres
      - BOLD_SERVICES_DB_PASSWORD=Admin@123
+    #  Site admin user details.
      - BOLD_SERVICES_USER_EMAIL=demo@boldreports.com
      - BOLD_SERVICES_USER_PASSWORD=Admin@123
-   # - OPTIONAL_LIBS=<comma_separated_library_names>
+    #  If you want to use the client libraries, uncomment the line below.
+   # - OPTIONAL_LIBS=mysql,oracle,postgresql
    networks:
      - boldreports
    volumes:
