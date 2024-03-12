@@ -30,10 +30,12 @@ services:
    image: syncfusion/boldreports
    restart: always
    ports:
-     - 8085:80
+     - 80:80
    # environment:
-     # - APP_URL=<app_base_url>
-	 # - OPTIONAL_LIBS=<comma_separated_library_names>
+     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+     - APP_URL=<APP_URL>
+     # Uncomment the line below, if you want to use the client libraries.
+	 # - OPTIONAL_LIBS=mysql,oracle,postgresql
    networks:
      - boldreports
    volumes:
@@ -77,7 +79,7 @@ volumes:
       > * If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.
       > * Provide the HTTP or HTTPS scheme for APP_BASE_URL value.
 
-  6. You can also change the Port number other than `8085`
+  6. You can also change the Port number other than `80`
 
   7. Allocate a directory in your host machine to store the shared folders for applications’ usage. Replace the directory path with `<host_path_boldreports_data>` and `<host_path_db_data>` in **docker-compose.yml** file.
 
@@ -110,10 +112,10 @@ Creating my_boldreports_db_1     ... done
 ```
 ### Bring up Bold Reports in a web browser
 
-At this point, Bold Reports should be running in `<app_base_url>:8085` (as appropriate)
+At this point, Bold Reports should be running in `<app_base_url>` (as appropriate)
 
 > **Note:**
-> The Bold Reports site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes for the first load.
+> The Bold Reports site is not immediately available on port 80 because the containers are still being initialized and may take a couple of minutes for the first load.
 
 ### Application Startup
 

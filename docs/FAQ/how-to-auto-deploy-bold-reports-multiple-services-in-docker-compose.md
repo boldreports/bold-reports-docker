@@ -170,7 +170,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
          # - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
          # - "<ssl_key_file_path>:/etc/ssl/domain.key"
       ports:
-         - "8085:80"
+         - "80:80"
          # - "443:443"
       environment:
          - NGINX_PORT=80
@@ -261,7 +261,7 @@ Example:
 
 ![auto-deploy-env](../images/auto-deploy-env.png)
 
-7. You can also change the Port number other than `8085`
+7. You can also change the Port number other than `80`
 
 8. Provide the **default.conf** file path, which you have downloaded earlier in `<default_conf_path>` place.
 
@@ -287,8 +287,8 @@ This runs `docker-compose up` in detached mode, pulls the needed Docker images, 
 
 ## Bring up BoldReports in a web browser
 
-At this point, BoldReports should be running in <app_base_url>:8085 (as appropriate)
-   > **Note:** The BoldReports site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes before the first load.
+At this point, BoldReports should be running in <app_base_url> (as appropriate)
+   > **Note:** The BoldReports site is not immediately available on port 80 because the containers are still being initialized and may take a couple of minutes before the first load.
 
 ## Application Startup
 Configure the Bold Reports On-Premise application startup to use the application. Please refer the following link for more details on configuring the application startup.
