@@ -6,23 +6,23 @@ services:
    image: syncfusion/boldreports
    restart: always
    ports:
-     - 8085:80
+     - 80:80
    environment:
-  #  Please Provide the application base url or machine IP with the port number to access the site.
+     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
      - APP_URL=<APP_URL>
-    #  Need to add the unlock key value from the unlock_key.lic, which we can obtain from the accounts page(https://www.boldreports.com/account).
+     # Set the unlock key value from the unlock_key.lic file, which can be obtained from the accounts page(https://www.boldreports.com/account).
      - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY>
-    #  PostgreSQL database details
-    #  PostgreSQL database are deployed along with this deployment. You can find the database password on line number 36 in this file.
+     # Preconfigured PostgreSQL database details that are deployed along with this deployment.
      - BOLD_SERVICES_DB_TYPE=postgresql
      - BOLD_SERVICES_DB_HOST=pgdb
      - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=postgres
      - BOLD_SERVICES_DB_USER=postgres
      - BOLD_SERVICES_DB_PASSWORD=Admin@123
-    #  Site admin user details.
+     # Set the site admin user Mail ID.
      - BOLD_SERVICES_USER_EMAIL=demo@boldreports.com
+     # Set the site admin user password.
      - BOLD_SERVICES_USER_PASSWORD=Admin@123
-    #  If you want to use the client libraries, uncomment the line below.
+    # Uncomment the line below, if you want to use the client libraries.
    # - OPTIONAL_LIBS=mysql,oracle,postgresql
    networks:
      - boldreports
@@ -33,6 +33,7 @@ services:
     image: postgres
     restart: always
     environment:
+    # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
       POSTGRES_PASSWORD: Admin@123
     volumes:
       - db_data:/var/lib/postgresql/data/

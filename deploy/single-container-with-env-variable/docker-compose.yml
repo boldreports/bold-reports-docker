@@ -8,25 +8,25 @@ services:
    ports:
      - 80:80
    environment:
-# Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
      - APP_URL=<APP_URL>
-# Set the unlock key value from the unlock_key.lic file, which can be obtained from the accounts page(https://www.boldreports.com/account).
+     # Set the unlock key value from the unlock_key.lic file, which can be obtained from the accounts page(https://www.boldreports.com/account).
      - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY>
-# Set the database type.
+     # Set the database type.
      - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
-# Set the database server.
+     # Set the database server.
      - BOLD_SERVICES_DB_HOST=<data_base_server_host>
-# Set the database port number.
+     # Set the database port number.
      - BOLD_SERVICES_DB_PORT=<data_base_server_port>
-# Set the maintenance database for postgresql.
+     # Set the maintenance database for postgresql.
      - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
-# Set the database username.
+     # Set the database username.
      - BOLD_SERVICES_DB_USER=<data_base_user_name>
-# Set the database password.
+     # Set the database password.
      - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
-# Set the site admin user Mail ID.
+     # Set the site admin user Mail ID.
      - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
-# Set the site admin user password.
+     # Set the site admin user password.
      - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
     # Uncomment the line below, if you want to use the client libraries.
     #  - OPTIONAL_LIBS=mysql,oracle,postgresql
@@ -40,7 +40,7 @@ services:
     image: postgres
     restart: always
     environment:
-# Set the password for the PostgreSQL database that will deploy along with this Bold Reports deployment.
+     # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
       POSTGRES_PASSWORD: <Password>
     volumes:
       - db_data:/var/lib/postgresql/data/
@@ -56,7 +56,7 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-# Set the path for the bold reports data to be stored.
+# Set the path for storing the data of the bold reports.
       device: '<host_path_boldreports_data>'
   db_data:
     driver: local

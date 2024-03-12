@@ -5,10 +5,12 @@ services:
    image: syncfusion/boldreports
    restart: always
    ports:
-     - 8085:80
+     - 80:80
    environment:
+     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
      - APP_URL=<app_base_url>
-     # - OPTIONAL_LIBS=<comma_separated_library_names>
+    # Uncomment the line below, if you want to use the client libraries.
+    #  - OPTIONAL_LIBS=mysql,oracle,postgresql
    networks:
      - boldreports
    volumes:
@@ -18,6 +20,7 @@ services:
     image: postgres
     restart: always
     environment:
+    # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
       POSTGRES_PASSWORD: <Password>
     volumes:
       - db_data:/var/lib/postgresql/data/
@@ -33,10 +36,12 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
+      # Set the path for storing the data of the bold reports.
       device: '<host_path_boldreports_data>'
   db_data:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
+      # Set the path for the docker PostgreSQL database data to be stored.
       device: '<host_path_db_data>'
