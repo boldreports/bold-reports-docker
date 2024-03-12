@@ -231,7 +231,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       > * If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.
       > * Provide the HTTP or HTTPS scheme for APP_BASE_URL value.
 
-  6. You can also change the Port number other than `8085`
+  6. You can also change the Port number other than `80`
 
   7. Provide the **default.conf** file path, which you have downloaded earlier in `<default_conf_path>` place.
 
@@ -257,10 +257,10 @@ This runs `podman-compose up` in detached mode, pulls the needed Docker images, 
 
 ### Bring up BoldReports in a web browser
 
-At this point, BoldReports should be running in `<app_base_url>:8085` (as appropriate)
+At this point, BoldReports should be running in `<app_base_url>` (as appropriate)
 
 > **Note:**
-> The BoldReports site is not immediately available on port 8085 because the containers are still being initialized and may take a couple of minutes before the first load.
+> The BoldReports site is not immediately available on port 80 because the containers are still being initialized and may take a couple of minutes before the first load.
 
 ### Application Startup
 
