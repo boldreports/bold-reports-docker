@@ -22,8 +22,10 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
          image: gcr.io/boldreports/bold-identity:5.4.30
          restart: on-failure
          environment:
-           - APP_BASE_URL=<app_base_url>
-           - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
+           # Required
+           - APP_BASE_URL=<app_base_url>                      # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+           # Optional: Uncomment the line below, if you want to use the client libraries.
+           #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
          volumes:
            - boldservices_data:/application/app_data
          networks:
@@ -166,7 +168,8 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
       image: nginx
       restart: on-failure
       volumes:
-         -  "<default_conf_path>:/etc/nginx/conf.d/default.conf"
+         -   "<default_conf_path>:/etc/nginx/conf.d/default.conf"     # Set the default.conf file path.
+         # Uncomment the lines below, if you want to configure the SSL.
          # - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
          # - "<ssl_key_file_path>:/etc/ssl/domain.key"
       ports:
@@ -188,7 +191,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
       image: postgres
       restart: always
       environment:
-         POSTGRES_PASSWORD: <Password>
+         POSTGRES_PASSWORD: <Password>                  # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
       volumes:
          - db_data:/var/lib/postgresql/data/
       networks:
@@ -203,13 +206,13 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
       driver_opts:
          type: 'none'
          o: 'bind'
-         device: '<host_path_boldservices_data>'
+         device: '<host_path_boldservices_data>'         # Set the path for storing the data of the bold reports.
    db_data:
       driver: local
       driver_opts:
          type: 'none'
          o: 'bind'
-         device: '<host_path_db_data>'
+         device: '<host_path_db_data>'                   # Set the path for the docker PostgreSQL database data to be stored.
    ```      
 
 
