@@ -29,7 +29,6 @@ services:
     image: postgres
     restart: always
     environment:
-    # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
       POSTGRES_PASSWORD: Admin@123
     volumes:
       - db_data:/var/lib/postgresql/data/

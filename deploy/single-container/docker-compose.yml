@@ -7,10 +7,10 @@ services:
    ports:
      - 80:80
    environment:
-     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
-     - APP_URL=<app_base_url>
-    # Uncomment the line below, if you want to use the client libraries.
-    #  - OPTIONAL_LIBS=mysql,oracle,postgresql
+     # Required
+     - APP_URL=<app_base_url>                     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+     # Optional: Uncomment the line below, if you want to use the client libraries.
+     #  - OPTIONAL_LIBS=mysql,oracle,postgresql
    networks:
      - boldreports
    volumes:
@@ -20,8 +20,7 @@ services:
     image: postgres
     restart: always
     environment:
-    # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
-      POSTGRES_PASSWORD: <Password>
+      POSTGRES_PASSWORD: <Password>                 # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
     volumes:
       - db_data:/var/lib/postgresql/data/
     networks:
@@ -36,12 +35,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      # Set the path for storing the data of the bold reports.
-      device: '<host_path_boldreports_data>'
+      device: '<host_path_boldreports_data>'        # Set the path for storing the data of the bold reports.
   db_data:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      # Set the path for the docker PostgreSQL database data to be stored.
-      device: '<host_path_db_data>'
+      device: '<host_path_db_data>'                 # Set the path for the docker PostgreSQL database data to be stored.
