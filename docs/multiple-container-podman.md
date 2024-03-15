@@ -191,7 +191,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
           image: postgres
 		  restart: always
 		  environment:
-			POSTGRES_PASSWORD: <Password>			 	# Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
+			POSTGRES_PASSWORD: <Password>		# Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
 		  volumes:
 			- db_data:/var/lib/postgresql
 		  networks:
@@ -212,7 +212,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			driver_opts:
 			type: 'none'
 			o: 'bind'
-			device: '<host_path_db_data>' 				# Set the path for the docker PostgreSQL database data to be stored.
+			device: '<host_path_db_data>'		# Set the path for the docker PostgreSQL database data to be stored.
         ```
   
   5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.

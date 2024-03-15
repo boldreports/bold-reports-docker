@@ -31,7 +31,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			restart: on-failure
 			environment: 
 			  # Required
-      	  - APP_BASE_URL=<app_base_url>                      # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+      	  - APP_BASE_URL=<app_base_url>			# Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
       	  # Optional: Uncomment the line below, if you want to use the client libraries.
       	  #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
 			volumes: 
@@ -191,7 +191,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
           image: postgres
 		  restart: always
 		  environment:
-			POSTGRES_PASSWORD: <Password>				# Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
+			POSTGRES_PASSWORD: <Password>		# Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
 		  volumes:
 			- db_data:/var/lib/postgresql
 		  networks:
@@ -212,7 +212,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			driver_opts:
 			type: 'none'
 			o: 'bind'
-			device: '<host_path_db_data>'				# Set the path for the docker PostgreSQL database data to be stored.
+			device: '<host_path_db_data>'		# Set the path for the docker PostgreSQL database data to be stored.
         ```
   
   5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
