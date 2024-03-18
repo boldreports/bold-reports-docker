@@ -6,19 +6,21 @@ services:
    image: syncfusion/boldreports
    restart: always
    ports:
-     - 8085:80
+     - 80:80
    environment:
-    # - APP_URL=<APP_URL>
-     - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY>
-     - BOLD_SERVICES_DB_TYPE=<data_base_server_type>
-     - BOLD_SERVICES_DB_HOST=<data_base_server_host>
-     - BOLD_SERVICES_DB_PORT=<data_base_server_port>
-     - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>
-     - BOLD_SERVICES_DB_USER=<data_base_user_name>
-     - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>
-     - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>
-     - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>
-    # - OPTIONAL_LIBS=<comma_separated_library_names>
+     # Required
+     - APP_URL=<APP_URL>                                              # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+     - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY>            # Set the unlock key value from the unlock_key.lic file, which can be obtained from the accounts page(https://www.boldreports.com/account).
+     - BOLD_SERVICES_DB_TYPE=<data_base_server_type>                  # Set the database type.
+     - BOLD_SERVICES_DB_HOST=<data_base_server_host>                  # Set the database server.
+     - BOLD_SERVICES_DB_PORT=<data_base_server_port>                  # Set the database port number.
+     - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=<maintenance_db_name>  # Set the maintenance database for postgresql.
+     - BOLD_SERVICES_DB_USER=<data_base_user_name>                    # Set the database username.
+     - BOLD_SERVICES_DB_PASSWORD=<data_base_server_password>          # Set the database password.
+     - BOLD_SERVICES_USER_EMAIL=<Bold_Reports_user_email>             # Set the site admin user Mail ID.
+     - BOLD_SERVICES_USER_PASSWORD=<Bold_Reports_user_password>       # Set the site admin user password.
+    # Optional: Uncomment the line below, if you want to use the client libraries.
+    #  - OPTIONAL_LIBS=mysql,oracle,postgresql
    networks:
      - boldreports
    volumes:
@@ -29,7 +31,7 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: <Password>
+      POSTGRES_PASSWORD: <Password>             # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
     volumes:
       - db_data:/var/lib/postgresql/data/
     networks:
@@ -44,10 +46,10 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '<host_path_boldreports_data>'
+      device: '<host_path_boldreports_data>'    # Set the path for storing the data of the bold reports.
   db_data:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '<host_path_db_data>'
+      device: '<host_path_db_data>'             # Set the path for the docker PostgreSQL database data to be stored.
