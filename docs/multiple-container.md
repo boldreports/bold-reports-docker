@@ -163,8 +163,8 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
           retries: 5
 
 		reports-etl:
-      	  container_name: reports_etl_container
-       	  image: us-docker.pkg.dev/boldreports/v6-1-34/bold-etl:6.1.34
+      container_name: reports_etl_container
+      image: us-docker.pkg.dev/boldreports/v6-1-34/bold-etl:6.1.34
           restart: on-failure
           volumes:
             - boldservices_data:/application/app_data
