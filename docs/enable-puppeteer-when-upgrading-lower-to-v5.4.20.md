@@ -28,7 +28,7 @@
     Mulitple-Container:
 
     ```sh
-    docker restart reports_web_container reports_api_container reports_jobs_container reports_reportservice_container reports_viewer_container
+    docker restart reports_web_container reports_api_container reports_jobs_container reports_reportservice_container reports_viewer_container reports_etl_container
     ```
 
     Singlecontainer:
