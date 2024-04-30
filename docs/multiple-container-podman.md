@@ -163,21 +163,21 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			retries: 5
 
 		reports-etl:
-      	  container_name: reports_etl_container
-       	  image: us-docker.pkg.dev/boldreports/v6-1-34/bold-etl:6.1.34
-          restart: on-failure
-          volumes:
-            - boldservices_data:/application/app_data
-          networks:
-            - boldservices
-          depends_on:
-            - id-web
-            - reports-web
-          healthcheck:
-          test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-          interval: 10s
-          timeout: 10s
-          retries: 5
+      		  container_name: reports_etl_container
+       	  	  image: us-docker.pkg.dev/boldreports/v6-1-34/bold-etl:6.1.34
+          	  restart: on-failure
+      		  volumes:
+      		    - boldservices_data:/application/app_data
+         	  networks:
+		    - boldservices
+      		  depends_on:
+                    - id-web
+            	    - reports-web
+          	  healthcheck:
+          		test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+          		interval: 10s
+          		timeout: 10s
+          		retries: 5
         
 		reverse-proxy:
 		  container_name: nginx
