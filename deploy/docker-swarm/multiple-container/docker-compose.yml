@@ -140,7 +140,7 @@ services:
 
   reports-etl:
     container_name: reports_etl_container
-    image: us-docker.pkg.dev/boldreports/images/bold-etl:6.1.45
+    image: us-docker.pkg.dev/boldreports/v6-1-45/bold-etl:6.1.45
     restart: on-failure
     volumes:
       - boldservices_data:/application/app_data
