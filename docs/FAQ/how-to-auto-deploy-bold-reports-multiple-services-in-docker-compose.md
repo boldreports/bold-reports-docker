@@ -19,7 +19,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
      services:
        id-web:
          container_name: id_web_container
-         image: us-docker.pkg.dev/boldreports/v6-1-34/bold-identity:6.1.34
+         image: us-docker.pkg.dev/boldreports/v6-1-34/bold-identity:6.1.45
          restart: on-failure
          environment:
            # Required
@@ -38,7 +38,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
      id-api:
        container_name: id_api_container
-       image: us-docker.pkg.dev/boldreports/v6-1-34/bold-identity-api:6.1.34
+       image: us-docker.pkg.dev/boldreports/v6-1-34/bold-identity-api:6.1.45
        restart: on-failure
        volumes: 
          - boldservices_data:/application/app_data
@@ -54,7 +54,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    id-ums:
       container_name: id_ums_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/bold-ums:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/bold-ums:6.1.45
       restart: on-failure
       environment:
          - BOLD_SERVICES_HOSTING_ENVIRONMENT=docker
@@ -81,7 +81,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-web:
       container_name: reports_web_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-server:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-server:6.1.45
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -97,7 +97,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-api:
       container_name: reports_api_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-server-api:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-server-api:6.1.45
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -114,7 +114,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-jobs:
       container_name: reports_jobs_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-server-jobs:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-server-jobs:6.1.45
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -131,7 +131,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-viewer:
       container_name: reports_viewer_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-viewer:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-viewer:6.1.45
       restart: on-failure
       volumes: 
          - boldservices_data:/application/app_data
@@ -148,7 +148,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-designerservice:
       container_name: reports_dataservice_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-designer:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/boldreports-designer:6.1.45
       restart: on-failure
       volumes:
          - boldservices_data:/application/app_data
@@ -165,7 +165,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
 
    reports-etl:
       container_name: reports_etl_container
-      image: us-docker.pkg.dev/boldreports/v6-1-34/bold-etl:6.1.34
+      image: us-docker.pkg.dev/boldreports/v6-1-34/bold-etl:6.1.45
       restart: on-failure
       volumes:
          - boldservices_data:/application/app_data
