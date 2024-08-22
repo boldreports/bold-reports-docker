@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   boldreports:
-   image: public.ecr.aws/x7k6q2v7/boldreports-single-docker:latest
+   image: public.ecr.aws/x7k6q2v7/boldreports-single-docker:6.2.32
    restart: always
    ports:
      - 80:80
