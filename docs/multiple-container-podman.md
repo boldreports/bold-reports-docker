@@ -33,7 +33,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			  # Required
       	  - APP_BASE_URL=<app_base_url>                      # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
       	  # Optional: Uncomment the line below, if you want to use the client libraries.
-      	  #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql
+      	  #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake
 			volumes: 
 			  - boldservices_data:/application/app_data
 			networks:
@@ -163,21 +163,21 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			retries: 5
 
 		reports-etl:
-      		  container_name: reports_etl_container
-       	  	  image: us-docker.pkg.dev/boldreports/v6-2-32/bold-etl:6.2.32
-          	  restart: on-failure
-      		  volumes:
-      		    - boldservices_data:/application/app_data
-         	  networks:
-		    - boldservices
-      		  depends_on:
-                    - id-web
-            	    - reports-web
-          	  healthcheck:
-          		test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-          		interval: 10s
-          		timeout: 10s
-          		retries: 5
+		  container_name: reports_etl_container
+		  image: us-docker.pkg.dev/boldreports/v6-2-32/bold-etl:6.2.32
+		  restart: on-failure
+		  volumes:
+		    - boldservices_data:/application/app_data
+		  networks:
+	        - boldservices
+		  depends_on:
+		    - id-web
+		    - reports-web
+		  healthcheck:
+		    test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+		    interval: 10s
+		    timeout: 10s
+		    retries: 5
         
 		reverse-proxy:
 		  container_name: nginx
