@@ -42,12 +42,8 @@ The following software requirements are necessary to run the Bold Reports Enterp
 | Tags               | OS Version    | Last Modified |
 | -------------      | ------------- | ------------- |
 | `6.3.16`           | Ubuntu 20.04  (amd64)    | 11/19/2024 |
-| `6.3.16_alpine`    | Alpine 3.13  (amd64)  | 11/19/2024 |
-| `6.3.16_debian`     | Debian 10  (amd64,arm64)        | 11/19/2024 |
-|`6.3.16_arm64`|Debian 10 (arm64)|11/19/2024 |
-|`6.3.16_ubuntu_arm64`| Ubuntu 20.04  (arm64)        | 11/19/2024 |
-
-Note: The tag `6.3.16_ubuntu_arm64` have some limitations where the data visualization will not be work in the exported reports.
+| `6.3.16-alpine`    | Alpine 3.13  (amd64)  | 11/19/2024 |
+| `6.3.16-debian`     | Debian 10  (amd64,arm64)        | 11/19/2024 |
 
 # How to use this image
 
