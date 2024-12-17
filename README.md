@@ -39,11 +39,12 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 # Supported tags
 
-| Tags               | OS Version    | Last Modified |
-| -------------      | ------------- | ------------- |
-| `6.3.24`           | Debian 10  (amd64,arm64)    | 12/17/2024 |
-| `6.3.24-ubuntu`     | Ubuntu 20.04 (amd64,arm64)        | 12/17/2024 |
-| `6.3.24-alpine`    | Alpine 3.13  (amd64,arm64)  | 12/17/2024 |
+| Tags  | OS Version    | Last Modified(MM/DD/YYYY)| Purpose |
+| ------------- | ------------- | ------------- | ------------- |
+| `6.3.24_eval` | Debian 12  (amd64,arm64) | 12/17/2024 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
+| `6.3.24`, `latest` | Debian 12  (amd64,arm64)    | 12/17/2024 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
+| `6.3.24-alpine`    | Alpine 3.13  (amd64, arm64)  | 12/17/2024 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
+| `6.3.24-focal`     | Ubuntu 22.04  (amd64, arm64)       | 12/17/2024 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
 
 # How to use this image
 
@@ -51,31 +52,21 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
 
   1. Download the Docker Compose file by using the following command.
   ```sh
-  curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-pre-configured/docker-compose.yml"
+  curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-eval/docker-compose.yaml"
   ```
-  2. Open the Docker Compose file, uncomment the APP_URL and replace <App_Url> with your DNS or IP address with port number, by which you want to access the application.
-
-      For example,  
-      `http://example.com `  
-      `https://example.com`  
-      `http://<public_ip_address>`  
-      `http://host.docker.internal`
-
-      ![docker-single-pre-conf](docs/images/single-container-pre-app-url.png)
-
-  3. Fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to [this](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) KB document to obtain the offline Bold Reports unlock key. 
+  2. Fill the BOLD_SERVICES_UNLOCK_KEY value, and save it. You can refer to [this](https://support.boldreports.com/kb/article/13271/how-do-i-get-my-offline-license-key-from-our-bold-reports-account-page) KB document to obtain the offline Bold Reports unlock key. 
 
       ![docker-compose-variable](docs/images/docker-compose-variable.png)
   
-  4. Fill the Environment Variables and optional library by refer [this](docs/environment-variable.md). 
+  3. Fill the Environment Variables and optional library by refer [this](docs/environment-variable.md). 
   
-  5. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
+  4. Run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
      ```sh
      docker-compose up -d; docker-compose logs -f boldreports
      ```
      ![docker-compose-up](docs/images/docker-compose-up.png)
 
-  6. Now, access the Bold Reports application by entering the URL as `http://host.docker.internal` or `http://host-ip` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 80. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+  5. Now, access the Bold Reports application by entering the URL as `http://localhost:8090` or `http://host-ip:8090` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
      ![docker-startup](docs/images/docker-startup.png)
   
