@@ -6,17 +6,6 @@ In the following section, we are going to run the Bold Reports application by pa
    ```sh
    curl -o docker-compose.yml "https://raw.githubusercontent.com/boldreports/bold-reports-docker/master/deploy/single-container-with-env-variable/docker-compose.yml"
    ```
-2. Open the docker compose file and fill the mandatory fields - **APP_BASE_URL, Unlock Key** and **Database details**
-
-   ![docker-compose-database-variable](/docs/images/database-env-value.png)
-
-   **APP_BASE_URL Guidance:**
-
-   * Provide the HTTP scheme for APP_BASE_URL value. For example,<br />
-      `http://example.com`<br />
-      `http://<public_ip_address>`
-   * For `Windows` and `MacOS` use either http://host.docker.internal. Docker Desktop provides `host.docker.internal` and `gateway.docker.internal` DNS for communication between docker applications and host machine. Please make sure that the host.docker.internal DNS has your IPv4 address mapped in your hosts file on Windows(C:\Windows\System32\drivers\etc\hosts).
-   * For `Linux` use the Machine Public IP address as the value for APP_URL with the HTTP scheme.
 
    **Environment variable Usage:**
 
@@ -34,14 +23,14 @@ In the following section, we are going to run the Bold Reports application by pa
    | `BOLD_SERVICES_USER_EMAIL`                 | Yes    | It should be a valid email.|
    | `BOLD_SERVICES_USER_PASSWORD`              | Yes    | It should meet our password requirements.<br /><br /><b>Note:</b>Password must meet the following requirements. It must contain at least 6 characters, 1 uppercase character, 1 lowercase character, 1 numeric character, 1 special character|
 
-3. Run docker compose up command.
+2. Run docker compose up command.
    ```sh
    docker-compose up -d
    ```
    ![docker-compose-up](./images/docker-compose-up.png)
    > **Note:** The docker volumes `boldservices_data` and `db_data` persists data of Bold Reports and PostgreSQL respectively. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
 
-4. After running the command, access the Bold Reports App by entering APP_URL in a browser.At this point, Bold Reports should be running in `<app_base_url>` (as appropriate)
+3. Now, access the Bold Reports application by entering the URL as `http://localhost:8090` or `http://host-ip:8090` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
    ![docker-startup](../docs/images/docker-startup.png)
    > **Note:** The Bold Reports site is not immediately available on port 80 because the containers are still being initialized and may take a couple of minutes for the first load.
