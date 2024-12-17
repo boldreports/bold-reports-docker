@@ -22,8 +22,6 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
   4. Create a docker-compose.yml file that starts your `BoldReports`  and a separate `PostgreSQL` instance with volume mounts for data persistence:
 
       ```sh
-		version: '3.5'
-		
 		services:
 		  id-web:
 			container_name: id_web_container
