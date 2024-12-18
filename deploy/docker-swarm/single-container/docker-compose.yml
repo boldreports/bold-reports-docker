@@ -1,11 +1,9 @@
-version: '3.5'
-
 services:
   boldreports:
    image: syncfusion/boldreports
    restart: always
    ports:
-     - 80:80
+     - 8090:80
    environment:
      # Required
      - APP_URL=<app_base_url>                     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal

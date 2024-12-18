@@ -23,19 +23,12 @@
   4. Create a docker-compose.yml file that starts your `BoldReports`  and a separate `PostgreSQL` instance with volume mounts for data persistence:
 
 ```sh
-version: '3.5'
-
 services:
   boldreports:
    image: syncfusion/boldreports
    restart: always
    ports:
-     - 80:80
-   # environment:
-     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
-     - APP_URL=<APP_URL>
-     # Uncomment the line below, if you want to use the client libraries.
-	 # - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake
+     - 8090:80
    networks:
      - boldreports
    volumes:
@@ -68,20 +61,10 @@ volumes:
       o: 'bind'
       device: '<host_path_db_data>'
   ```
-  5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
-    
-      For example, <br/>
-          `http://example.com` <br/>
-          `https://example.com` <br/>
-          `http://<public_ip_address>` <br/>
 
-      > **Note:**
-      > * If you are using the IP address for the Base URL, make sure you are using the public IP of the machine instead of internal IP or local IP address. Applications can communicate with each other using the public IP alone. Host machine IP will not be accessible inside the application container.
-      > * Provide the HTTP or HTTPS scheme for APP_BASE_URL value.
+  5. You can also change the Port number other than `8090`
 
-  6. You can also change the Port number other than `80`
-
-  7. Allocate a directory in your host machine to store the shared folders for applications’ usage. Replace the directory path with `<host_path_boldreports_data>` and `<host_path_db_data>` in **docker-compose.yml** file.
+  6. Allocate a directory in your host machine to store the shared folders for applications’ usage. Replace the directory path with `<host_path_boldreports_data>` and `<host_path_db_data>` in **docker-compose.yml** file.
 
        For example, <br><b>Windows:</b> `device: 'D:/boldreports/boldreports_data'` and `device: 'D:/boldreports/db_data'` <br><b>Linux:</b> `device: '/var/boldreports/boldreports_data'` and `device: '/var/boldreports/db_data'`
 
@@ -112,10 +95,10 @@ Creating my_boldreports_db_1     ... done
 ```
 ### Bring up Bold Reports in a web browser
 
-At this point, Bold Reports should be running in `<app_base_url>` (as appropriate)
+Now, access the Bold Reports application by entering the URL as `http://localhost:8090` or `http://host-ip:8090` in the browser. When opening this URL in the browser, it will display the License page within a few seconds. The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
 > **Note:**
-> The Bold Reports site is not immediately available on port 80 because the containers are still being initialized and may take a couple of minutes for the first load.
+> The Bold Reports site is not immediately available on port 8090 because the containers are still being initialized and may take a couple of minutes for the first load.
 
 ### Application Startup
 
