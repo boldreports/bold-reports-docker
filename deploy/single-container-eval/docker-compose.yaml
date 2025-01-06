@@ -20,7 +20,7 @@ services:
      - boldreports
    volumes:
      - boldreports_data:/application/app_data
-     - db_data:/var/lib/postgresql/data/
+     - db_data:/var/lib/postgresql
 
 networks:
   boldreports:
