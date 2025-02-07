@@ -20,11 +20,8 @@ The following hardware requirements are necessary to run the Bold Reports soluti
 
 * Operating System: You can use the Bold Reports Docker and Podman on the following operating systems: 
   * Windows
-  * Ubuntu 20.04 LTS
-  * Cent OS 7
+  * Linux
   * Mac
-  * Red Hat Enterprise Linux (RHEL)
-  * Alpine Linux
 * CPU: 4-core.
 * Memory: 16 GB RAM.
 * Disk Space: 8 GB or more.
@@ -41,10 +38,10 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags  | OS Version    | Last Modified(MM/DD/YYYY)| Purpose |
 | ------------- | ------------- | ------------- | ------------- |
-| `6.3.24-eval` | Debian 12  (amd64,arm64) | 12/18/2024 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
-| `6.3.24`, `latest` | Debian 12  (amd64,arm64)    | 12/18/2024 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
-| `6.3.24-alpine`    | Alpine 3.13  (amd64, arm64)  | 12/18/2024 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
-| `6.3.24-focal`     | Ubuntu 22.04  (amd64, arm64)       | 12/18/2024 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
+| `7.1.9-eval` | Debian 12  (amd64,arm64) | 02/07/2025 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
+| `7.1.9`, `latest` | Debian 12  (amd64,arm64)    | 02/07/2025 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
+| `7.1.9-alpine`    | Alpine 3.13  (amd64, arm64)  | 02/07/2025 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
+| `7.1.9-focal`     | Ubuntu 22.04  (amd64, arm64)       | 02/07/2025 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
 
 # How to use this image
 
