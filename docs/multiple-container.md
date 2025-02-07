@@ -25,13 +25,13 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 		services:
 		  id-web:
 			container_name: id_web_container
-			image: us-docker.pkg.dev/boldreports/v6-3-24/bold-identity:6.3.24
+			image: us-docker.pkg.dev/boldreports/v7-1-9/bold-identity:7.1.9
 			restart: on-failure
 			environment: 
 			  # Required
       	  - APP_BASE_URL=<app_base_url>			# Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
       	  # Optional: Uncomment the line below, if you want to use the client libraries.
-      	  #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake
+      	  #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery
 			volumes: 
 			  - boldservices_data:/application/app_data
 			networks:
@@ -44,7 +44,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 				
 		id-api:
 		  container_name: id_api_container
-		  image: us-docker.pkg.dev/boldreports/v6-3-24/bold-idp-api:6.3.24
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/bold-idp-api:7.1.9
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -60,7 +60,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			
 		id-ums:
 		  container_name: id_ums_container
-		  image: us-docker.pkg.dev/boldreports/v6-3-24/bold-ums:6.3.24
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/bold-ums:7.1.9
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -76,7 +76,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			  
 		reports-web:
 		  container_name: reports_web_container
-		  image: us-docker.pkg.dev/boldreports/v6-3-24/boldreports-server:6.3.24
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server:7.1.9
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -92,7 +92,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
         
 		reports-api:
           container_name: reports_api_container
-          image: us-docker.pkg.dev/boldreports/v6-3-24/boldreports-server-api:6.3.24
+          image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-api:7.1.9
           restart: on-failure
           volumes: 
             - boldservices_data:/application/app_data
@@ -109,7 +109,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-jobs:
 		  container_name: reports_jobs_container
-		  image: us-docker.pkg.dev/boldreports/v6-3-24/boldreports-server-jobs:6.3.24
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-jobs:7.1.9
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -127,7 +127,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-reportservice:
 		  container_name: reports_reportservice_container
-		  image: us-docker.pkg.dev/boldreports/v6-3-24/boldreports-designer:6.3.24
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-designer:7.1.9
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -145,7 +145,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			
 		reports-viewer:
 		  container_name: reports_viewer_container
-		  image: us-docker.pkg.dev/boldreports/v6-3-24/boldreports-viewer:6.3.24
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-viewer:7.1.9
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -162,7 +162,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 
 		reports-etl:
           container_name: reports_etl_container
-          image: us-docker.pkg.dev/boldreports/v6-3-24/bold-etl:6.3.24
+          image: us-docker.pkg.dev/boldreports/v7-1-9/bold-etl:7.1.9
           restart: on-failure
           volumes:
             - boldservices_data:/application/app_data

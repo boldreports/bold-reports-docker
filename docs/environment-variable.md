@@ -26,6 +26,7 @@ The following Environment variables are optional. If not provided, a manual Appl
 |`BOLD_SERVICES_USER_EMAIL`                   | Yes         | It should be a valid email.|
 |`BOLD_SERVICES_USER_PASSWORD`                | Yes         | It should meet our password requirements.<br /><br /><b>Note:</b>Password must meet the following requirements. It must contain at least 6 characters, 1 uppercase character, 1 lowercase character, 1 numeric character, 1 special character|
 |`BOLD_SERVICES_USE_SITE_IDENTIFIER`          | No          | 	The variable is optional, and the default value is <b>TRUE</b>.<br />By default, all sites in Bold Reports require a site identifier, which differentiates sites on the same domain. That is https://example.com/reporting/site/{site_identifier}<br />You can ignore the site identifier by setting the value as <b>FALSE</b>. If the site identifier is disabled, each site requires a unique domain.|
+|`BOLD_USE_SINGLE_TENANT_DB`                  | No          | 	The variable is optional, Determines whether all tenants share a single database (true) or each tenant has a separate database (false).|
 
 ## Environment variables for configuring `Branding` in backend
 
