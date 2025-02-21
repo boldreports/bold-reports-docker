@@ -25,7 +25,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 		services:
 		  id-web:
 			container_name: id_web_container
-			image: us-docker.pkg.dev/boldreports/v7-1-9/bold-identity:7.1.9
+			image: us-docker.pkg.dev/boldreports/v7-1-9/bold-identity:8.1.1
 			restart: on-failure
 			environment: 
 			  # Required
@@ -44,7 +44,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 				
 		id-api:
 		  container_name: id_api_container
-		  image: us-docker.pkg.dev/boldreports/v7-1-9/bold-idp-api:7.1.9
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/bold-idp-api:8.1.1
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -60,7 +60,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			
 		id-ums:
 		  container_name: id_ums_container
-		  image: us-docker.pkg.dev/boldreports/v7-1-9/bold-ums:7.1.9
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/bold-ums:8.1.1
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -76,7 +76,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			  
 		reports-web:
 		  container_name: reports_web_container
-		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server:7.1.9
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server:8.1.1
 		  restart: on-failure
 		  volumes: 
 		    - boldservices_data:/application/app_data
@@ -92,7 +92,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
         
 		reports-api:
           container_name: reports_api_container
-          image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-api:7.1.9
+          image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-api:8.1.1
           restart: on-failure
           volumes: 
             - boldservices_data:/application/app_data
@@ -109,7 +109,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-jobs:
 		  container_name: reports_jobs_container
-		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-jobs:7.1.9
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-server-jobs:8.1.1
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -127,7 +127,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
       
 		reports-reportservice:
 		  container_name: reports_reportservice_container
-		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-designer:7.1.9
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-designer:8.1.1
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -145,7 +145,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 			
 		reports-viewer:
 		  container_name: reports_viewer_container
-		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-viewer:7.1.9
+		  image: us-docker.pkg.dev/boldreports/v7-1-9/boldreports-viewer:8.1.1
 		  restart: on-failure
 		  volumes: 
 			- boldservices_data:/application/app_data
@@ -162,7 +162,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 
 		reports-etl:
           container_name: reports_etl_container
-          image: us-docker.pkg.dev/boldreports/v7-1-9/bold-etl:7.1.9
+          image: us-docker.pkg.dev/boldreports/v7-1-9/bold-etl:8.1.1
           restart: on-failure
           volumes:
             - boldservices_data:/application/app_data
