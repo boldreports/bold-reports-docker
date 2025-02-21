@@ -38,10 +38,10 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags  | OS Version    | Last Modified(MM/DD/YYYY)| Purpose |
 | ------------- | ------------- | ------------- | ------------- |
-| `8.1.1-eval` | Debian 12  (amd64,arm64) | 02/22/2025 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
-| `8.1.1`, `latest` | Debian 12  (amd64,arm64)    | 02/22/2025 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
-| `8.1.1-alpine`    | Alpine 3.13  (amd64, arm64)  | 02/22/2025 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
-| `8.1.1-focal`     | Ubuntu 22.04  (amd64, arm64)       | 02/22/2025 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
+| `8.1.1-eval` | Debian 12  (amd64,arm64) | 02/21/2025 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
+| `8.1.1`, `latest` | Debian 12  (amd64,arm64)    | 02/21/2025 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
+| `8.1.1-alpine`    | Alpine 3.13  (amd64, arm64)  | 02/21/2025 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
+| `8.1.1-focal`     | Ubuntu 22.04  (amd64, arm64)       | 02/21/2025 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
 
 # How to use this image
 
