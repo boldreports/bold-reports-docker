@@ -47,7 +47,7 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 The above Bold Reports image can be deployed using Docker or Docker Compose. In the following section, we are going to start the Bold Reports application and PostgreSQL with volume mounts for data persistence using Docker Compose.
 
-  1. Download the Docker Compose file from the accounts [download](https://www.boldreports.com/account) page.
+  1. Log in to the Bold Reports [account](https://www.boldreports.com/account) page and download the Docker Compose file.
      ![docker-compose-file](docs/images/docker-compose-file.png)
   
   2. Navigate to the file location and run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
