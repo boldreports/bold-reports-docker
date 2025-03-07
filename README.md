@@ -50,7 +50,7 @@ The above Bold Reports image can be deployed using Docker or Docker Compose. In 
   1. Log in to the Bold Reports [account](https://www.boldreports.com/account) page and download the Docker Compose file.
      ![docker-compose-file](docs/images/docker-compose-file.png)
   
-  2. Navigate to the file location and run the command below. This command will start the Bold Reports and Postgres SQL containers and display the Bold Reports logs to provide information about the installation status of the Bold Reports application.
+  2. Navigate to the docker-compose file location and run the command below. This command will start the Bold Reports and PostgreSQL containers and display the Bold Reports logs, providing information about the installation status of the Bold Reports application.
      ```sh
      docker-compose up -d; docker-compose logs -f boldreports
      ```
