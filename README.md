@@ -56,7 +56,7 @@ The eval tag (8.1.1-eval) is specifically designed to streamline the Bold Report
      ```
      ![docker-compose-up](docs/images/docker-compose-up.png)
 
-  4. Now, access the Bold Reports application by entering the URL as `http://localhost:8090` or `http://host-ip:8090` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+  3. Now, access the Bold Reports application by entering the URL as `http://localhost:8090` or `http://host-ip:8090` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
      ![docker-startup](docs/images/docker-startup.png)
 
