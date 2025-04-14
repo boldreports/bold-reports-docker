@@ -16,7 +16,7 @@ services:
      - BOLD_SERVICES_DB_PASSWORD=Admin@123
      - BOLD_SERVICES_USER_EMAIL=demo@boldreports.com       # Set the site admin user Mail ID.
      - BOLD_SERVICES_USER_PASSWORD=Admin@123               # Set the site admin user password.
-   # - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery     ## Uncomment this line, if you want to use the client libraries.
+   # - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery,mongodb     ## Uncomment this line, if you want to use the client libraries.
    networks:
      - boldreports
    volumes:

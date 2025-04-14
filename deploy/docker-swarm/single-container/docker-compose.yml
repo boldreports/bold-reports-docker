@@ -8,7 +8,7 @@ services:
      # Required
      - APP_URL=<app_base_url>                     # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
      # Optional: Uncomment the line below, if you want to use the client libraries.
-     #  - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery
+     #  - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery,mongodb
    networks:
      - boldreports
    volumes:
