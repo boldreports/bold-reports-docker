@@ -52,15 +52,15 @@ The eval tag (9.1.7-eval) is specifically designed to streamline the Bold Report
       curl -o docker-compose.yml "https://github.com/boldreports/bold-reports-docker/blob/master/deploy/single-container-eval-no-license/docker-compose.yml"
       ```
   
-  2. Run the command below. This command will start the Bold BI application container and display the Bold BI container logs, providing information about the installation status of the Bold BI application.
+  2. Run the command below. This command will start the Bold Reports application container and display the Bold Reports container logs, providing information about the installation status of the Bold Reports application.
      ```sh
      docker-compose up -d; docker-compose logs -f boldreports
      ```
      ![docker-compose-up](docs/images/docker-compose-up.png)
 
-   3. Now, access the Bold BI application by entering the URL as http://localhost:8090 or http://host-ip:8090 in the browser. When you open this URL, the application will configure its startup in the background and display the license activation page below within a few seconds. You can either activate your license using the available option or try the trial version by selecting the Proceed with 30 Days Trial option.
+   3. Now, access the Bold Reports application by entering the URL as http://localhost:8090 or http://host-ip:8090 in the browser. When you open this URL, the application will configure its startup in the background and display the license activation page below within a few seconds. You can either activate your license using the available option or try the trial version by selecting the Proceed with 30 Days Trial option.
 
-      > Note: The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold BI application.
+      > Note: The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
       ![registration-page](docs/images/registration-page.png)
 
