@@ -60,7 +60,7 @@ The eval tag (9.1.7-eval) is specifically designed to streamline the Bold Report
 
    3. Now, access the Bold Reports application by entering the URL as http://localhost:8090 or http://host-ip:8090 in the browser. When you open this URL, the application will configure its startup in the background and display the license activation page below within a few seconds. You can either activate your license using the available option or try the trial version by selecting the Proceed with 30 Days Trial option.
 
-      > Note: The default port number mentioned in the compose file is 8085. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+      > Note: The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
 
       ![registration-page](docs/images/registration-page.png)
 
