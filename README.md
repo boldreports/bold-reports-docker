@@ -45,20 +45,28 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 # Deploying Bold Reports Evaluation Image Using Docker Compose
 
-The eval tag (8.1.1-eval) is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. In this guide, we will demonstrate how to deploy the Bold Reports evaluation image using Docker Compose, with volume mounts configured for data persistence.
+The eval tag (9.1.7-eval) is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. In this guide, we will demonstrate how to deploy the Bold Reports evaluation image using Docker Compose, with volume mounts configured for data persistence.
 
-  1. Log in to the Bold Reports [account](https://www.boldreports.com/account) page and download the Docker Compose file.
-     ![docker-compose-file](docs/images/docker-compose-file.png)
+  1. Download the Docker Compose file by using the following command.   
+      ```sh
+      curl -o docker-compose.yml "https://github.com/boldreports/bold-reports-docker/blob/master/deploy/single-container-eval-no-license/docker-compose.yml"
+      ```
   
-  2. Navigate to the docker-compose file location and run the command below. This command will start the Bold Reports application container and display the Bold Reports container logs, providing information about the installation status of the Bold Reports application.
+  2. Run the command below. This command will start the Bold Reports application container and display the Bold Reports container logs, providing information about the installation status of the Bold Reports application.
      ```sh
      docker-compose up -d; docker-compose logs -f boldreports
      ```
      ![docker-compose-up](docs/images/docker-compose-up.png)
 
-  3. Now, access the Bold Reports application by entering the URL as `http://localhost:8090` or `http://host-ip:8090` in the browser. When opening this URL in the browser, it will configure the application startup in the background and display the page below within a few seconds. The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+   3. Now, access the Bold Reports application by entering the URL as http://localhost:8090 or http://host-ip:8090 in the browser. When you open this URL, the application will configure its startup in the background and display the license activation page below within a few seconds. You can either activate your license using the available option or try the trial version by selecting the Proceed with 30 Days Trial option.
 
-     ![docker-startup](docs/images/docker-startup.png)
+      > Note: The default port number mentioned in the compose file is 8090. If you are making changes to the port number, then you need to use that port number for accessing the Bold Reports application.
+
+      ![registration-page](docs/images/registration-page.png)
+
+      After selecting the license option, the application will redirect you to the dashboard listing page.
+
+      ![Dashboard page](docs/images/dashboard-page.png)
 
       > **Note:** </br> 1. The deployment steps above are recommended for evaluation purposes only. For a production use case, you will need to mount the volume to the host path location or online storage and utilize managed DB servers. </br>2. Don't use localhost IP (`http://127.0.0.1`) with `port` to access the application.
 # How to Deploy Bold Reports using Advanced Configuration?

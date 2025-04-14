@@ -1,36 +1,25 @@
 services:
   boldreports:
    container_name: boldreports
-   image: syncfusion/boldreports
+   image: syncfusion/boldreports:9.1.7-eval
    restart: always
    ports:
      - 8090:80
    environment:
-     # Required                                
-     - BOLD_SERVICES_UNLOCK_KEY=<BOLD_SERVICES_UNLOCK_KEY> # Set the unlock key value from the unlock_key.lic file, which can be obtained from the accounts page(https://www.boldreports.com/account).
      # Optional: Default values are fine for evaluation purposes.
      - BOLD_SERVICES_DB_TYPE=postgresql                    # Preconfigured PostgreSQL database details that are deployed along with this deployment.
-     - BOLD_SERVICES_DB_HOST=pgdb
+     - BOLD_SERVICES_DB_HOST=localhost
      - BOLD_SERVICES_POSTGRESQL_MAINTENANCE_DB=postgres
      - BOLD_SERVICES_DB_USER=postgres
      - BOLD_SERVICES_DB_PASSWORD=Admin@123
      - BOLD_SERVICES_USER_EMAIL=demo@boldreports.com       # Set the site admin user Mail ID.
      - BOLD_SERVICES_USER_PASSWORD=Admin@123               # Set the site admin user password.
-   # - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery,mongodb     ## Uncomment this line, if you want to use the client libraries.
+    # - OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,mongodb     ## Uncomment this line, if you want to use the client libraries.
    networks:
      - boldreports
    volumes:
      - boldreports_data:/application/app_data
-    
-  pgdb:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: Admin@123
-    volumes:
-      - db_data:/var/lib/postgresql/data/
-    networks:
-      - boldreports
+     - db_data:/var/lib/postgresql
 
 networks:
   boldreports:
