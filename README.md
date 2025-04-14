@@ -49,7 +49,7 @@ The eval tag (9.1.7-eval) is specifically designed to streamline the Bold Report
 
   1. Download the Docker Compose file by using the following command.   
       ```sh
-      curl -o docker-compose.yml "https://github.com/boldreports/bold-reports-docker/blob/master/deploy/single-container-eval-no-license/docker-compose.yml"
+      curl -o docker-compose.yml "[https://github.com/boldreports/bold-reports-docker/blob/master/deploy/single-container-eval-no-license/docker-compose.yml](https://raw.githubusercontent.com/boldreports/bold-reports-docker/refs/heads/master/deploy/single-container-eval-no-license/docker-compose.yml)"
       ```
   
   2. Run the command below. This command will start the Bold Reports application container and display the Bold Reports container logs, providing information about the installation status of the Bold Reports application.
