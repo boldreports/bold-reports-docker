@@ -21,8 +21,8 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 
   4. Create a docker-compose.yml file that starts your `BoldReports`  and a separate `PostgreSQL` instance with volume mounts for data persistence:
 
-      ```sh
-	   	  services:
+     ```sh
+	  services:
         id-web:
           container_name: id_web_container
           image: us-docker.pkg.dev/boldreports/v9-1-7/bold-identity:9.1.7
@@ -254,7 +254,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
             type: 'none'
             o: 'bind'
             device: '<host_path_db_data>'               # Set the path for the docker PostgreSQL database data to be stored.
-      ```
+     ```
   
   5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
     
