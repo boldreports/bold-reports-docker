@@ -21,215 +21,240 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
 
   4. Create a docker-compose.yml file that starts your `BoldReports`  and a separate `PostgreSQL` instance with volume mounts for data persistence:
 
-      ```sh
-		services:
-		  id-web:
-			container_name: id_web_container
-			image: us-docker.pkg.dev/boldreports/v9-1-7/bold-identity:9.1.7
-			restart: on-failure
-			environment: 
-			  # Required
-      	  - APP_BASE_URL=<app_base_url>                      # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
-      	  # Optional: Uncomment the line below, if you want to use the client libraries.
-      	  #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery,mongodb
-			volumes: 
-			  - boldservices_data:/application/app_data
-			networks:
-			  - boldservices
-			healthcheck:
-				test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-				interval: 10s
-				timeout: 10s
-				retries: 5
-				
-		id-api:
-		  container_name: id_api_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/bold-idp-api:9.1.7
-		  restart: on-failure
-		  volumes: 
-		    - boldservices_data:/application/app_data
-		  networks:
-			- boldservices
-		  depends_on:
-		    - id-web
-		  healthcheck:
-			  test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-			  interval: 10s
-			  timeout: 10s
-			  retries: 5    
-			
-		id-ums:
-		  container_name: id_ums_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/bold-ums:9.1.7
-		  restart: on-failure
-		  volumes: 
-		    - boldservices_data:/application/app_data
-		  networks:
-		    - boldservices
-		  depends_on:
-		    - id-web
-		  healthcheck:
-			  test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-			  interval: 10s
-			  timeout: 10s
-			  retries: 5
-			  
-		reports-web:
-		  container_name: reports_web_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/boldreports-server:9.1.7
-		  restart: on-failure
-		  volumes: 
-		    - boldservices_data:/application/app_data
-		  networks:
-		    - boldservices
-		  depends_on:
-		    - id-web
-		  healthcheck:
-			  test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-			  interval: 10s
-			  timeout: 10s
-			  retries: 5
-        
-		reports-api:
-          container_name: reports_api_container
-          image: us-docker.pkg.dev/boldreports/v9-1-7/boldreports-server-api:9.1.7
+     ```sh
+	  services:
+        id-web:
+          container_name: id_web_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/bold-identity:10.1.11
+          restart: on-failure
+          environment: 
+            # Required
+            - APP_BASE_URL=<app_base_url>                      # Set the Application base URL or the machine IP of external DNS to access the site. For example: https://example.com or http://172.174.25.9 or http://host.docker.internal
+            # Optional: Uncomment the line below, if you want to use the client libraries.
+            #  - INSTALL_OPTIONAL_LIBS=mysql,oracle,postgresql,snowflake,googlebigquery,mongodb
+            - DEPLOY_MODE=docker_multi_container
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+              
+        id-api:
+          container_name: id_api_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/bold-idp-api:10.1.11
           restart: on-failure
           volumes: 
             - boldservices_data:/application/app_data
           networks:
             - boldservices
           depends_on:
-            - id-web
-            - reports-web
+            id-web
+              condition: service_healthy
           healthcheck:
               test: ["CMD", "curl", "-f", "http://localhost/health-check"]
               interval: 10s
               timeout: 10s
               retries: 5
-      
-		reports-jobs:
-		  container_name: reports_jobs_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/boldreports-server-jobs:9.1.7
-		  restart: on-failure
-		  volumes: 
-			- boldservices_data:/application/app_data
-		  networks:
-			- boldservices
-		  depends_on:
-            - id-web
-			- reports-web
-			- reports-api
-		  healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-			interval: 10s
-			timeout: 10s
-			retries: 5
-      
-		reports-reportservice:
-		  container_name: reports_reportservice_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/boldreports-designer:9.1.7
-		  restart: on-failure
-		  volumes: 
-			- boldservices_data:/application/app_data
-		  networks:
-			- boldservices
-		  depends_on:
-            - id-web
-            - reports-web
-            - reports-api
-		  healthcheck:
-			test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-			interval: 10s
-			timeout: 10s
-			retries: 5
-			
-		reports-viewer:
-		  container_name: reports_viewer_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/boldreports-viewer:9.1.7
-		  restart: on-failure
-		  volumes: 
-		    - boldservices_data:/application/app_data
-		  networks:
-		    - boldservices
-		  depends_on:
-		    - id-web
-		    - reports-web
-		  healthcheck:
-			test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-			interval: 10s
-			timeout: 10s
-			retries: 5
+              
+        id-ums:
+          container_name: id_ums_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/bold-ums:10.1.11
+          restart: on-failure
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+              
+        reports-web:
+          container_name: reports_web_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/boldreports-server:10.1.11
+          restart: on-failure
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+              
+        reports-api:
+          container_name: reports_api_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/boldreports-server-api:10.1.11
+          restart: on-failure
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+            reports-web
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+            
+        reports-jobs:
+          container_name: reports_jobs_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/boldreports-server-jobs:10.1.11
+          restart: on-failure
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+            reports-web
+              condition: service_healthy
+            reports-api
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+            
+        reports-reportservice:
+          container_name: reports_reportservice_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/boldreports-designer:10.1.11
+          restart: on-failure
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+            reports-web
+              condition: service_healthy
+            reports-api
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
 
-		reports-etl:
-		  container_name: reports_etl_container
-		  image: us-docker.pkg.dev/boldreports/v9-1-7/bold-etl:9.1.7
-		  restart: on-failure
-		  volumes:
-		    - boldservices_data:/application/app_data
-		  networks:
-	        - boldservices
-		  depends_on:
-		    - id-web
-		    - reports-web
-		  healthcheck:
-		    test: ["CMD", "curl", "-f", "http://localhost/health-check"]
-		    interval: 10s
-		    timeout: 10s
-		    retries: 5
-        
-		reverse-proxy:
-		  container_name: nginx
-		  image: nginx
-		  restart: on-failure
-		  volumes:
-			-   "<default_conf_path>:/etc/nginx/conf.d/default.conf"    # Set the default.conf file path.
-			# Uncomment the lines below, if you want to configure the SSL.
-			# - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
-			# - "<ssl_key_file_path>:/etc/ssl/domain.key"
-		  ports:
-			- "80:80"
-			# - "443:443"
-		  environment:
-			- NGINX_PORT=80
-		  networks:
-			- boldservices
-		  depends_on:
-		    - id-web
-			- id-api
-			- id-ums
-			- reports-web
-			- reports-api
-			- reports-jobs
-			- reports-reportservice
-			- reports-viewer
-			- reports-etl
-		pgdb:
+        reports-viewer:
+          container_name: reports_viewer_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/boldreports-viewer:10.1.11
+          restart: on-failure
+          volumes: 
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+            reports-web
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+
+        reports-etl:
+          container_name: reports_etl_container
+          image: us-docker.pkg.dev/boldreports/v10-1-11/bold-etl:10.1.11
+          restart: on-failure
+          volumes:
+            - boldservices_data:/application/app_data
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+            reports-web
+              condition: service_healthy
+          healthcheck:
+              test: ["CMD", "curl", "-f", "http://localhost/health-check"]
+              interval: 10s
+              timeout: 10s
+              retries: 5
+              
+        reverse-proxy:
+          container_name: nginx
+          image: nginx
+          restart: on-failure
+          volumes:
+            -   "<default_conf_path>:/etc/nginx/conf.d/default.conf"          # Set the default.conf file path.
+            # Uncomment the lines below, if you want to configure the SSL.
+            # - "<ssl_cert_file_path>:/etc/ssl/domain.crt"
+            # - "<ssl_key_file_path>:/etc/ssl/domain.key"
+          ports:
+            - "80:80"
+            # - "443:443"
+          environment:
+            - NGINX_PORT=80
+          networks:
+            - boldservices
+          depends_on:
+            id-web
+              condition: service_healthy
+            id-api
+              condition: service_healthy
+            id-ums
+              condition: service_healthy
+            reports-web
+              condition: service_healthy
+            reports-api
+              condition: service_healthy
+            reports-jobs
+              condition: service_healthy
+            reports-reportservice
+              condition: service_healthy
+            reports-viewer
+              condition: service_healthy
+            reports-etl
+              condition: service_healthy
+        pgdb:
           image: postgres
-		  restart: always
-		  environment:
-			POSTGRES_PASSWORD: <Password>		# Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
-		  volumes:
-			- db_data:/var/lib/postgresql/data/
-		  networks:
-			- boldservices
+          restart: always
+          environment:
+            POSTGRES_PASSWORD: <Password>              # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
+          volumes:
+            - db_data:/var/lib/postgresql/data/
+          networks:
+            - boldservices
 
-	  networks:
-		boldservices: 
-
-	  volumes:
-		boldservices_data:
-			driver: local
-			driver_opts:
-			type: 'none'
-			o: 'bind'
-			device: '<host_path_boldservices_data>'		# Set the path for storing the data of the bold reports.
-		db_data:
-			driver: local
-			driver_opts:
-			type: 'none'
-			o: 'bind'
-			device: '<host_path_db_data>'		# Set the path for the docker PostgreSQL database data to be stored.
-        ```
+      networks:
+        boldservices: 
+        
+      volumes:
+        boldservices_data:
+          driver: local
+          driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '<host_path_boldservices_data>'     # Set the path for storing the data of the bold reports.
+        db_data:
+          driver: local
+          driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '<host_path_db_data>'               # Set the path for the docker PostgreSQL database data to be stored.
+     ```
   
   5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
     

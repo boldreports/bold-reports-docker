@@ -38,14 +38,14 @@ The following software requirements are necessary to run the Bold Reports Enterp
 
 | Tags  | OS Version    | Last Modified(MM/DD/YYYY)| Purpose |
 | ------------- | ------------- | ------------- | ------------- |
-| `9.1.7-eval` | Debian 12  (amd64,arm64) | 04/14/2025 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
-| `9.1.7`, `latest` | Debian 12  (amd64,arm64)    | 04/14/2025 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
-| `9.1.7-alpine`    | Alpine 3.13  (amd64, arm64)  | 04/14/2025 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
-| `9.1.7-focal`     | Ubuntu 22.04  (amd64, arm64)       | 04/14/2025 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
+| `10.1.11-eval` | Debian 12  (amd64,arm64) | 04/14/2025 | This Docker image is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. |
+| `10.1.11`, `latest` | Debian 12  (amd64,arm64)    | 04/14/2025 | This tag is intended for production use. Select this variant if you prefer Debian as the base image for your deployment. |
+| `10.1.11-alpine`    | Alpine 3.13  (amd64, arm64)  | 04/14/2025 | This tag is intended for production use. Select this variant if you prefer Alpine as the base image for your deployment. |
+| `10.1.11-focal`     | Ubuntu 22.04  (amd64, arm64)       | 04/14/2025 | This tag is intended for production use. Select this variant if you prefer Ubuntu as the base image for your deployment. |
 
 # Deploying Bold Reports Evaluation Image Using Docker Compose
 
-The eval tag (9.1.7-eval) is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. In this guide, we will demonstrate how to deploy the Bold Reports evaluation image using Docker Compose, with volume mounts configured for data persistence.
+The eval tag (10.1.11-eval) is specifically designed to streamline the Bold Reports evaluation process by integrating a PostgreSQL server within the Bold Reports container. Please note that this image tag is intended for evaluation purposes only and should not be used in production environments. In this guide, we will demonstrate how to deploy the Bold Reports evaluation image using Docker Compose, with volume mounts configured for data persistence.
 
   1. Download the Docker Compose file by using the following command.   
       ```sh
