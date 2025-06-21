@@ -254,7 +254,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
             type: 'none'
             o: 'bind'
             device: '<host_path_db_data>'               # Set the path for the docker PostgreSQL database data to be stored.
-    ```
+     ```
   
   5. Replace `<app_base_url>` with your DNS or IP address, by which you want to access the application.
     
