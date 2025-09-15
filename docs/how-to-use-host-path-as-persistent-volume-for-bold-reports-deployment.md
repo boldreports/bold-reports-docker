@@ -33,7 +33,7 @@ You can store the application data on your host machine to make the Bold Reports
    -e APP_URL=https://example.com \
    -v D:/boldreports/app_data:/application/app_data \
    -v D:/boldreports/nginx:/etc/nginx/sites-available \
-   -d syncfusion/boldreports:10.1.11
+   -d syncfusion/boldreports:11.1.10
    ```
 
 2. After running the command, access the Bold Reports App by entering `APP_URL` in a browser. At this point, Bold Reports should be running in `<app_url>` (as appropriate)
