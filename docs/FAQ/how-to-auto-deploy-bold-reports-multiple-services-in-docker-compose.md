@@ -206,7 +206,7 @@ This section allows you to deploy [Bold Reports](https://www.boldreports.com/) i
          - reports-designerservice
          - reports-etl
    pgdb:
-      image: postgres
+      image: postgres:17
       restart: always
       environment:
          POSTGRES_PASSWORD: <Password>                  # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
