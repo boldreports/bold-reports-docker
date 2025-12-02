@@ -229,7 +229,7 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
             reports-etl:
               condition: service_started
         pgdb:
-          image: postgres
+          image: postgres:17
           restart: always
           environment:
             POSTGRES_PASSWORD: <Password>              # Set the password for the PostgreSQL database that will be deployed along with this Bold Reports deployment.
