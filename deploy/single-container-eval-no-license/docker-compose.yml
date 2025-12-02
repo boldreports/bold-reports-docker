@@ -1,7 +1,7 @@
 services:
   boldreports:
    container_name: boldreports
-   image: syncfusion/boldreports:11.1.10-eval
+   image: syncfusion/boldreports:12.1.12-eval
    restart: always
    ports:
      - 8090:80
