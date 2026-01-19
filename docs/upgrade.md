@@ -15,7 +15,7 @@ Before upgrading the Bold Reports to latest version, make sure to take the backu
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
 
  1. If you are using the docker compose yaml file for deployment,
- You can download the latest docker-compose file from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v12.1.12/deploy/single-container/docker-compose.yml) and use the below command to down the containers from where you deploy the docker compose file.
+ You can download the latest docker-compose file from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v12.2.6/deploy/single-container/docker-compose.yml) and use the below command to down the containers from where you deploy the docker compose file.
 
     ```sh
      docker-compose down
@@ -55,7 +55,7 @@ Bold Reports updates the database schema of your current version to the latest v
      -d syncfusion/boldreports:<tag> 
     ```
 
-    #### Example: docker run --name boldreports -p 80:80 -p 443:443 -e APP_URL="http://10.103.215.44" -e OPTIONAL_LIBS="mysql,oracle,postgresql,snowflake,googlebigquery,monogodb" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:12.1.12
+    #### Example: docker run --name boldreports -p 80:80 -p 443:443 -e APP_URL="http://10.103.215.44" -e OPTIONAL_LIBS="mysql,oracle,postgresql,snowflake,googlebigquery,monogodb" -v "/home/Admin123/upgrade/app_data":/application/app_data -v "/home/Admin123/upgrade/nginx":/etc/nginx/sites-available -d syncfusion/boldreports:12.2.6
 
     > **Note:**
     > When upgrading Bold Reports, ensure that the volume mount remains the same, and only the tag needs to be changed.
@@ -66,8 +66,8 @@ After upgrading the bold reports application.Please refer [this](/docs/enable-pu
 ## Proceeding with upgrade for multiple container
 Bold Reports updates the database schema of your current version to the latest version. The upgrade process will retain all the resources and settings from the previous deployment.
 
-You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v12.1.12/deploy/multiple-container/docker-compose.yml)
-[default.conf](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v12.1.12/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
+You can download the latest docker-compose file and default.conf from this [docker-compose](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v12.2.6/deploy/multiple-container/docker-compose.yml)
+[default.conf](https://raw.githubusercontent.com/boldreports/bold-reports-docker/v12.2.6/deploy/multiple-container/default.conf) and use the below command to down the containers from where you deploy the docker compose file.
 
 ```sh
 docker-compose down
