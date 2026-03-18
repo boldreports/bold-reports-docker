@@ -88,6 +88,8 @@ This quick-start guide demonstrates how to use Compose to set up and run Bold Re
           depends_on:
             id-web:
               condition: service_healthy
+            id-api:
+              condition: service_healthy
           healthcheck:
               test: ["CMD", "curl", "-f", "http://localhost/health-check"]
               interval: 10s
