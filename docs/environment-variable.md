@@ -7,6 +7,7 @@ Bold Reports supports the following environment variables. You can find the name
 |`OPTIONAL_LIBS`                    | No                                                           | 	These are the client libraries used in Bold Reports by default.<br /><br />`mysql,oracle,postgresql,snowflake`<br /><br />Please refer [Consent to deploy client libraries](../docs/consent-to-deploy-client-libraries.md) Libraries section to know more.|
 |`<host_path_boldreports_data>`    | No                                                            | Persistent volume path for the Bold Reports application data|
 |`<host_path_db_data>`     | No                                                            |Persistent volume path for the PostgreSQL data|
+|`BOLD_SERVICES_REVERSE_PROXY`|No|This property is used to perform HTTPS redirection correctly in Bold BI when using an External Balancer such as ALB or NLB to access Bold BI, set this to `true`. By default, this option is set to `false`.|
 
 ## Environment variables for configuring `Application Startup` in backend
 
